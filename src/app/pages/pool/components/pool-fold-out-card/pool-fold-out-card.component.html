@@ -1,0 +1,20 @@
+<div class="fold-out">
+  <mipools-front-end-pool-card
+    *ngIf="activePoolService.poolInfo$ | async; let pool"
+    [pool]="pool"
+  ></mipools-front-end-pool-card>
+  <button
+    *ngFor="
+      let configuration of entryService.configurations$ | async;
+      index as index
+    "
+    style="width: 100%"
+    (click)="entryService.selectConfiguration(index)"
+    aria-label="select entry configuration"
+  >
+    <mipools-front-end-pool-configuration
+      [configuration]="configuration.details"
+      [selected]="configuration.selected"
+    ></mipools-front-end-pool-configuration>
+  </button>
+</div>

@@ -1,0 +1,9 @@
+<div class="grid" *ngIf="scoringInfoService.showScoreInfo$ | async">
+  <span class="title">Scoring</span>
+  <mipools-front-end-exit-button
+    class="exit-button"
+    (exitEvent)="scoringInfoService.toggleScoreInfo()"
+  ></mipools-front-end-exit-button>
+  <hr class="hr">
+  <span *ngFor="let item of scoringInfoService.scoringInfo$ | async" class="info"> {{item}}</span>
+</div>

@@ -1,0 +1,136 @@
+@use 'mixins';
+@use 'colors';
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: colors.$dark-grey;
+
+  .transactions-header {
+    width: 100%;
+    @include mixins.flexColumnCenter();
+    padding: 0.6rem 1.5rem 0.6rem 0.6rem;
+    gap: 1vh;
+
+    .title-section {
+      width: 100%;
+      @include mixins.flexColumnCenter();
+      position: relative;
+      font-family: 'Robo-Bold', Roboto, sans-serif;
+      font-size: 1rem;
+      padding: 0.6rem;
+
+      .exit-button {
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    .controls-container {
+      @include mixins.flexRowCenter();
+      justify-content: space-between;
+      width: 100%;
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        height: 100%;
+        font-size: 1rem;
+        width: 25%;
+        overflow: hidden;
+
+        @media screen and (min-width: 480px) {
+          width: 31%;
+        }
+
+        .statement-head {
+          font-family: 'Robo-Reg', Roboto, sans-serif;
+          font-size: 1rem;
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin: 0 0 0.5rem 0;
+        }
+
+        .amount {
+          font-family: 'Robo-Reg', Roboto, sans-serif;
+          font-size: 1.3rem;
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding: 0.3rem 0 0 0;
+
+          @media screen and (min-width: 480px) {
+            font-size: 1.5rem;
+          }
+        }
+
+        &.controls {
+          align-items: center;
+          width: 45%;
+
+          @media screen and (min-width: 480px) {
+            width: 31%;
+          }
+
+          .drop-down {
+            width: 100%;
+
+            .toggle {
+              width: 100%;
+              border: 0.1rem solid colors.$extra-light-grey;
+              padding: 0.5rem 0.85rem 0.5rem 0.5rem;
+              border-radius: 1rem;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              color: colors.$light-green;
+              font-family: 'Robo-Reg', Roboto, sans-serif;
+              font-size: 0.875rem;
+
+              @media screen and (min-width: 480px) {
+                padding: 0.5rem 1rem 0.5rem 1rem;
+              }
+
+              &:hover {
+                background-color: black;
+              }
+            }
+
+            .down-arrow {
+              height: 1rem;
+              width: auto;
+            }
+          }
+        }
+
+        .title {
+          font-family: 'Robo-Bold', Roboto, sans-serif;
+          opacity: 0.5;
+          font-size: 0.875rem;
+          margin-top: 0.4rem;
+        }
+      }
+    }
+  }
+
+  .transactions {
+    @include mixins.hideScrollbar();
+    flex-grow: 1;
+    width: 100%;
+    @include mixins.flexColumnCenter();
+    justify-content: flex-start;
+    gap: 1px;
+    overflow-y: auto;
+
+    .transaction-item {
+      width: 100%;
+    }
+  }
+}

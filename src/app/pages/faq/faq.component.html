@@ -1,0 +1,547 @@
+<div class="main-continer">
+  <div class="header-container">
+    <p class="header">HELP CENTRE</p>
+    <p class="sub-header">Contact us or browse our support documents</p>
+  </div>
+
+  <div class="faq-top-container">
+    <div class="faq-panel">
+      <img
+        src="https://media.miomni.com/uploads/email_icon.png"
+        alt="Call Us Icon"
+        class="image"
+      />
+      <p class="faq-panel-head">EMAIL</p>
+      <p class="faq-panel-text">
+        Please get in touch with us if you have any comments or feedback<br />
+        <span class="link"
+          ><a href="mailto:helpdesk@mipools.co.uk">helpdesk&#64;mipools.co.uk</a
+          >.</span
+        >
+      </p>
+      <button
+        class="faq-panel-button"
+        onclick="location.href='mailto:helpdesk@mipools.co.uk'"
+        type="button"
+      >
+        EMAIL US
+      </button>
+    </div>
+    <div class="faq-panel">
+      <img
+        src="https://media.miomni.com/uploads/chat_icon.png"
+        alt="Chat with Us Icon"
+        class="image"
+      />
+      <p class="faq-panel-head">CHAT</p>
+      <div class="faq-panel-text">
+        Chat with our team live from<br />Monday to Friday<br />8am - 8pm
+      </div>
+      <button (click)="openChat()" class="faq-panel-button">CHAT NOW</button>
+    </div>
+  </div>
+</div>
+
+<div class="faq-question-panel">
+  <div class="faq-question-block">
+    <!--top-->
+    <div class="row">
+      <div class="col">
+        <div class="tab">
+          <input type="checkbox" id="chck1" />
+          <label class="tab-label" for="chck1">Who are MiPools?</label>
+          <div class="tab-content">
+            We are the team behind I-Pools host limited and our brand name is
+            MiPools. Our aim is to design and create fun, safe games for you to
+            play as an alternative to betting!<br /><br />
+            We offer different ways to play, the majority of the games are
+            pool-based which means the prizes are increased by you, the player!
+            However, watch out for our fixed cash or merchandise prizes. If you
+            want to be notified of new features, exclusive pools and prizes join
+            our newsletter.<br /><br />
+            Our games are topical across sport and entertainment, and we have
+            been known to add the occasional current affair game. To see what we
+            will be following go to our
+            <a href="#">big event calendar</a>.<br /><br />
+            If you have any requests for games or like a specific category
+            please do email in your requests and ideas.
+          </div>
+        </div>
+      </div>
+      <!--Game play-->
+      <div class="col">
+        <h2>Game play and rules</h2>
+        <div class="tab">
+          <input type="checkbox" id="chck2" />
+          <label class="tab-label" for="chck2">What is a ‘pool’?</label>
+          <div class="tab-content">
+            In its simplest form it is a game of skill players pay an entry fee
+            to enter. Your entry fee gets added to a pot. So, when more players
+            pay in the prize increases. We create the games; you create the
+            prize.
+          </div>
+        </div>
+        <div class="tab">
+          <input type="checkbox" id="chck3" />
+          <label class="tab-label" for="chck3"
+            >Why does it Pay to Play together?</label
+          >
+          <div class="tab-content">
+            We encourage players to tell friends and family to play as not only
+            does it increase the prize, but it is also more fun and challenging
+            when there are more people to play with. It does mean that more
+            players could share the prize, but we see this as a nice problem to
+            have! We want you to win on MiPools!<br /><br />
+            Fair Play is important to us, and as our community grows, we have
+            plenty of ideas up our sleeves to keep everyone playing and happy.
+          </div>
+        </div>
+        <div class="tab">
+          <input type="checkbox" id="chck4" />
+          <label class="tab-label" for="chck4"
+            >What other games do you offer?</label
+          >
+          <div class="tab-content">
+            <h3 class="sport-head">CRICKET</h3>
+            <span class="sport-subhead fantasy">Pick Five</span><br />
+            Make your combined 5 a side from the teams playing in the upcoming
+            match. The better your picks perform, the higher they will score.
+            The player(s) whose picks score the most will be our winner.
+            <br /><br />
+
+            <h3 class="sport-head">FOOTBALL</h3>
+            <span class="sport-subhead fantasy">Pick Four Teams to Score</span
+            ><br />
+            Pick a team from each pot to score the most goals in the upcoming
+            fixtures. Players will receive a point for every goal their teams
+            score. The player(s) whose picks score the most will be our
+            winner.<br /><br />
+            <span class="sport-subhead fantasy">Pick Four Players to Score</span
+            ><br />
+            Pick a player from each pot to score in the upcoming fixtures.
+            Players will receive points for every Goal, Penalty Goal and Assist
+            their players achieve. The player(s) whose picks score the most will
+            be our winner.<br /><br />
+            <span class="sport-subhead fantasy">Pick Five</span><br />
+            Make your combined 5 a side team from the teams playing in the
+            upcoming match. The better your picks perform, the higher they will
+            score. The player(s) whose picks score the most will be our
+            winner.<br /><br />
+            <span class="sport-subhead predictor">Jackpot Rollover Coupon</span
+            ><br />
+            Our biggest prize pool. To win, you must correctly predict a Win or
+            Draw across 10 Matches. If no player scores 10/10, the prize will
+            roll onto the following weekend. There are near miss consolation
+            prizes for entries that score 8/9 out of 10.<br /><br />
+            <span class="sport-subhead predictor">Match Rollover</span><br />
+            For the selected match, you must correctly predict the number of
+            Goals, Cards and Corners in the match. If you correctly predict all
+            3 you will be our winner. If no player scores 3/3, the prize will
+            roll onto the next match.<br /><br />
+            <span class="sport-subhead predictor">Football Coupons</span><br />
+            Predict a Win or Draw across chosen matches. Every correct answer
+            will score you points. The player(s) who scores the most will win or
+            share the prize.<br /><br />
+            <span class="sport-subhead predictor">Match Predictors</span><br />
+            Make 5 Predictions on the match. You will be asked questions on in
+            game events such as the result, a player to score, the minute of the
+            first goal plus more. Every correct answer will score points, the
+            player(s) who score the most will win or share the prize.<br /><br />
+            <span class="sport-subhead predictor">Yes/No Predict 7</span><br />
+            Make 7 simple Yes or No predictions for the upcoming match. Every
+            correct answer will score points, the player(s) who score the most
+            will win or share the prize.<br /><br />
+            <span class="sport-subhead survivor">Weekly Survivors</span><br />
+            Select a team to win their upcoming match. If they win, you will
+            progress to the next round. If they lose or draw, you are
+            eliminated. You can only pick each team once so make your choices
+            carefully. The last remaining player(s) will win or share the
+            prize.<br /><br />
+
+            <h3 class="sport-head">GOLF</h3>
+            <span class="sport-subhead fantasy">Fantasy Four Balls</span><br />
+            Pick your Four players for the upcoming tournament. The better your
+            picks perform, the higher they will score. The player(s) whose picks
+            score the most will be our winner.<br /><br />
+            <span class="sport-subhead survivor">Tournament Survivor</span
+            ><br />
+            Select a player to score under par each round. If they do, you will
+            progress to the next round. If they do not, you are eliminated. You
+            can only pick each player once so make your choices carefully. The
+            last remaining player(s) will win or share the prize. <br /><br />
+
+            <h3 class="sport-head">RACING</h3>
+            <span class="sport-subhead predictor">Horse Racing Rollover</span
+            ><br />
+            For the selected race, you must correctly predict which horse will
+            finish 1st, 2nd and 3rd. If you correctly predict all 3 you will be
+            our winner. If no player scores 3/3, the prize will roll onto the
+            next race.<br /><br />
+            <span class="sport-subhead fantasy">Daily Pick 6/7/8</span><br />
+            Pick your horses for the upcoming meeting. The better your horses
+            perform at the races, the higher they will score. The player(s)
+            whose picks score the most will be our winner.
+          </div>
+        </div>
+        <div class="tab">
+          <input type="checkbox" id="chck5" />
+          <label class="tab-label" for="chck5">Can I create my own pool?</label>
+          <div class="tab-content">
+            There isn’t a feature to do this at the moment. However, if you have
+            a great idea for a pool, please tell us and if we think it would
+            work, we will create it for you! Please email
+            <a href="mailto:ideas@mipools.com">ideas&#64;mipools.com</a>
+          </div>
+        </div>
+        <div class="tab">
+          <input type="checkbox" id="chck6" />
+          <label class="tab-label" for="chck6">What is a platform fee?</label>
+          <div class="tab-content">
+            We provide the games for you to play and in return our platform fee
+            is a % from each player cash entry. Our team design, create, manage
+            and support the MiPools platform everyday throughout the year.<br /><br />
+
+            Please see platform fee chart and always read the pool How to Play
+            page.<br /><br />
+
+            <div class="grid">
+              <div class="grid-left">
+                <div class="grid-left-top">
+                  MiPools platform fee<br />for Public Pools (%)
+                </div>
+                <div class="grid-left-bottom">Pool Size:</div>
+                <div class="grid-left-bottom">Unlimited:</div>
+                <div class="grid-left-bottom">10 Max:</div>
+                <div class="grid-left-bottom">Heads Up:</div>
+              </div>
+              <div class="grid-right">
+                <div class="grid-right-top">Stakes</div>
+                <div class="grid-right-small">
+                  <div class="small-grid">£1 - £4</div>
+                  <div class="small-grid">£5 - £24</div>
+                  <div class="small-grid">£25 - £99</div>
+                  <div class="small-grid">£100+</div>
+                </div>
+                <div class="grid-right-small">
+                  <div class="small-grid">20%</div>
+                  <div class="small-grid">18%</div>
+                  <div class="small-grid">16%</div>
+                  <div class="small-grid">14%</div>
+                </div>
+                <div class="grid-right-small">
+                  <div class="small-grid">10%</div>
+                  <div class="small-grid">8%</div>
+                  <div class="small-grid">7%</div>
+                  <div class="small-grid">5%</div>
+                </div>
+                <div class="grid-right-small">
+                  <div class="small-grid">8%</div>
+                  <div class="small-grid">7%</div>
+                  <div class="small-grid">6%</div>
+                  <div class="small-grid">4%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab">
+          <input type="checkbox" id="chck7" />
+          <label class="tab-label" for="chck7"
+            >Can I enter a game more than once?</label
+          >
+          <div class="tab-content">
+            The number of entries per pool can vary, so aways read the pool
+            rules. In most case you can enter up to 10 times on most pools. For
+            each entry you will need to provide different picks, predictions or
+            selections. If it is a FREE play, you can only enter once.
+          </div>
+        </div>
+        <div class="tab">
+          <input type="checkbox" id="chck8" />
+          <label class="tab-label" for="chck8"
+            >What happens if more than one player scores the same number of
+            winning points?</label
+          >
+          <div class="tab-content">
+            If more than one player is in a winning position on the leader board
+            (have the same number of points) then the prize is shared equally
+            between those players.
+          </div>
+        </div>
+        <div class="tab">
+          <input type="checkbox" id="chck9" />
+          <label class="tab-label" for="chck9"
+            >Does only the winner get paid out?</label
+          >
+          <div class="tab-content">
+            The Top 3 players (1st, 2nd & 3rd positions) will win a % of the
+            overall prize. For example: 1st place = 70%, 2nd place = 20% 3rd
+            place: 10%.<br /><br />
+            The prize and pay-out structure info are always available in the
+            ‘How to Play’ for each game as they may vary.
+          </div>
+        </div>
+        <div class="tab">
+          <input type="checkbox" id="chck10" />
+          <label class="tab-label" for="chck10">What is a Double Up?</label>
+          <div class="tab-content">
+            Double up is a chance for you to Double your points on one
+            prediction or pick. Once you have made your predictions you will get
+            the chance to review your predictions and select one which you are
+            pretty confident about, or you may just decide to go for the Double
+            Up which offers you the highest number of points.<br /><br />
+            Please note Double Up is not available on a ‘nearest pin’
+            prediction. Not all pools offer a double up.
+          </div>
+        </div>
+        <div class="tab">
+          <input type="checkbox" id="chck11" />
+          <label class="tab-label" for="chck11">What is a Nearest Pin?</label>
+          <div class="tab-content">
+            To set your nearest pin you will need to drag the circle along the
+            line until you reach your chosen prediction. You can also enter your
+            prediction manually via the field below the slider.
+          </div>
+        </div>
+        <div class="tab">
+          <input type="checkbox" id="chck12" />
+          <label class="tab-label" for="chck12"
+            >The deadline for my Survivor pool has passed, can I still register
+            my selection?</label
+          >
+          <div class="tab-content">
+            Unfortunately not, in the spirit of fairness and integrity once the
+            deadline for a particular matchday/week has passed any player who
+            has failed to make a selection is eliminated from the game and we
+            cannot accept selections after this.
+          </div>
+        </div>
+        <div class="tab">
+          <input type="checkbox" id="chck13" />
+          <label class="tab-label" for="chck13"
+            >Do you include extra time in pools involving football
+            matches?</label
+          >
+          <div class="tab-content">
+            Yes, unless otherwise stated in the pool, any pool based on football
+            results and/or stats from a game WILL include any extra time played
+            but will NOT include penalty shoot outs.
+          </div>
+        </div>
+        <!--Account-->
+        <div class="col">
+          <h2>Account</h2>
+          <div class="tab">
+            <input type="checkbox" id="chck14" />
+            <label class="tab-label" for="chck14"
+              >Can I play on MiPools if I have a Telegraph Predictor / I-Pools
+              account?</label
+            >
+            <div class="tab-content">
+              Yes, you can! You will have access to all Mipools games, and the
+              games already entered via telegraph predictor. A player can only
+              have one account so if you have any questions or issues logging
+              in, please contact
+              <a href="mailto:helpdesk@mipools.co.uk">customer support</a>.
+            </div>
+          </div>
+          <div class="tab">
+            <input type="checkbox" id="chck15" />
+            <label class="tab-label" for="chck15"
+              >I need to verify my account how do I do this?</label
+            >
+            <div class="tab-content">
+              If you have received an email or error message when attempting to
+              log in informing you that we were unable to automatically verify
+              your account details, don't worry, this could be for a number of
+              reasons, recently moved house, a mistake on the registration form
+              etc, we simply require some information to manually verify your
+              details.<br /><br />
+              Please email
+              <a href="mailto:helpdesk@mipools.co.uk">helpdesk&#64;mipools.co.uk</a>
+              with proof of ID (a copy of passport , driving licence or any
+              government issued photo ID with your name and DOB clearly visible)
+              AND proof of UK address (a copy of a utility bill, bank/credit
+              card statement dated within the last 3 months with address clearly
+              visible).<br /><br />
+              Once received we will have your account up and running within
+              minutes.
+            </div>
+          </div>
+          <div class="tab">
+            <input type="checkbox" id="chck16" />
+            <label class="tab-label" for="chck16"
+              >I have registered for an account but haven't received a
+              verification email.</label
+            >
+            <div class="tab-content">
+              These can sometimes take a few minutes to come through, please
+              also check your spam folder. If you still can't find it please
+              confirm your account username and email address and we will get
+              another one sent.
+            </div>
+          </div>
+          <div class="tab">
+            <input type="checkbox" id="chck17" />
+            <label class="tab-label" for="chck17"
+              >I can't log in to my account?</label
+            >
+            <div class="tab-content">
+              You can request a new password on the account log in screen, we
+              will email you a link so that you can reset your password.<br /><br />
+              Telegraph Predictor users please note that you require a separate
+              account for Telegraph Predictor and cannot use an account used for
+              any other Telegraph Fantasy games, please register a new account
+              for Telegraph Predictor games.<br /><br />
+              If for any other reason you are unable to log in please contact
+              our live chat or email our helpdesk at
+              <a href="mailto:helpdesk@mipools.co.uk">helpdesk&#64;mipools.co.uk</a>
+              and we will happily assist you in accessing your account.
+            </div>
+          </div>
+          <div class="tab">
+            <input type="checkbox" id="chck18" />
+            <label class="tab-label" for="chck18"
+              >I have 5 failed log in attempts and my account is locked , can
+              you unlock it please?</label
+            >
+            <div class="tab-content">
+              We realise that remembering passwords can be challenging but for
+              security reasons your account will become locked after 5 failed
+              login attempts. But don't worry, after 20 minutes you will be able
+              to try again or if you still can't remember your password you can
+              request a new one be sent to your email address.
+            </div>
+          </div>
+          <div class="tab">
+            <input type="checkbox" id="chck19" />
+            <label class="tab-label" for="chck19"
+              >Can I close my account?</label
+            >
+            <div class="tab-content">
+              We'll be sorry to see you got but of course you can close your
+              account with us at any time simply by contacting us via live chat
+              or
+              <a href="mailto:helpdesk@mipools.co.uk">helpdesk&#64;mipools.co.uk</a
+              >. If in future you decide you wish to reopen your account again
+              contact us and we''ll be very happy to welcome you back.
+            </div>
+          </div>
+        </div>
+        <!--Managed Funds-->
+        <div class="col">
+          <h2>Managed Funds</h2>
+          <div class="tab">
+            <input type="checkbox" id="chck20" />
+            <label class="tab-label" for="chck20"
+              >How do I update my card details?</label
+            >
+            <div class="tab-content">
+              Card details are only saved on your account when a card has been
+              used to make a deposit. Once used, this card will then become a
+              deposit option, you will also have the option to delete any old
+              card details you no longer wish to be saved on your account.
+            </div>
+          </div>
+          <div class="tab">
+            <input type="checkbox" id="chck21" />
+            <label class="tab-label" for="chck21"
+              >I want to withdraw some of my winnings but can't see how.</label
+            >
+            <div class="tab-content">
+              You can only withdraw funds to a card you have already made at
+              least a minimum deposit from. If you have no withdrawal options on
+              your account it is likely that you have yet to make a deposit.
+              Simply make a minimum deposit and this card will appear as a
+              withdrawal option stored on your account.
+            </div>
+          </div>
+          <div class="tab">
+            <input type="checkbox" id="chck22" />
+            <label class="tab-label" for="chck22"
+              >Can I make a withdrawal via bank transfer?</label
+            >
+            <div class="tab-content">
+              You most certainly can, although to enable bank transfers as a
+              withdrawal option we require a secondary level of account
+              verification.<br /><br />
+              Please email
+              <a href="mailto:helpdesk@mipools.co.uk">helpdesk&#64;mipools.co.uk</a>
+              with proof of ID (a copy of passport , driving licence or any
+              government issued photo ID with your name and DOB clearly visible)
+              AND proof of UK address (a copy of a utility bill, bank/credit
+              card statement dated within the last 3 months with address clearly
+              visible).<br /><br />
+              Once received you will then be able to request withdrawals via
+              bank transfer, please note the minimum withdrawal amount applies
+              to bank transfer withdrawals.
+            </div>
+          </div>
+          <div class="tab">
+            <input type="checkbox" id="chck23" />
+            <label class="tab-label" for="chck23"
+              >I made a withdrawal but have not received the funds yet, when
+              will they appear in my bank account?</label
+            >
+            <div class="tab-content">
+              We currently process withdrawals once per day. After your
+              withdrawal has been approved it can take 1-3 working days to reach
+              your account, this time frame can vary and is dependent on the
+              bank receiving the funds.
+            </div>
+          </div>
+          <div class="tab">
+            <input type="checkbox" id="chck24" />
+            <label class="tab-label" for="chck24"
+              >I have some points in my account can I convert these to
+              cash?</label
+            >
+            <div class="tab-content">
+              If you have been lucky enough to win or earn some points , well
+              done , you can now use these to enter cash pools and play for some
+              big cash prize funds. Unfortunately, at present we cannot convert
+              these points to cash or vice versa.
+            </div>
+          </div>
+          <div class="tab">
+            <input type="checkbox" id="chck25" />
+            <label class="tab-label" for="chck25"
+              >Can I set a deposit limit on my account?</label
+            >
+            <div class="tab-content">
+              Of course , you can set your own deposit limit by requesting this
+              on live chat or by emailing
+              <a href="mailto:helpdesk@mipools.co.uk">helpdesk&#64;mipools.co.uk</a
+              >. A deposit limit or deposit limit reduction will be implemented
+              immediately.
+            </div>
+          </div>
+          <div class="tab">
+            <input type="checkbox" id="chck26" />
+            <label class="tab-label" for="chck26"
+              >Can I remove or increase the deposit limit on my account?</label
+            >
+            <div class="tab-content">
+              You can request a deposit limit increase at any time, increase or
+              removal of a deposit limit will take 24 hours from the original
+              request to take effect. Requests to increase deposit limits beyond
+              £1000 per month will be subject to affordability checks.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-text-container">
+        <p class="faq-bottom-text">
+          You can request a deposit limit increase at any time, increase or
+          removal of a deposit limit will take 24 hours from the original
+          request to take effect. Requests to increase deposit limits beyond
+          £1000 per month will be subject to affordability checks.
+        </p>
+        <p class="faq-bottom-text bold">
+          Need more help? Chat or email
+          <a href="mailto:helpdesk@mipools.co.uk">customer support</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

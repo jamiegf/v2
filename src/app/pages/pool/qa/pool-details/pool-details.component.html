@@ -1,0 +1,31 @@
+<ng-container *ngIf="poolHeaderData$ | async; let poolHeaderData">
+  <div class="grid" [ngClass]="activePoolService.gameType$ | async">
+    <span class="title colored">{{ poolHeaderData.title }}</span>
+    <span class="date">
+      {{ poolHeaderData.closeDate | formatDate: 'eee do LLL HH:mm' }} -
+      {{ poolHeaderData.endDate | formatDate: 'eee do LLL HH:mm' }}
+    </span>
+    <span
+      class="count-numbers"
+      [ngClass]="(scoringInfoService.scoringInfo$ | async) ? 'scoring' : 'no-scoring'"
+      >{{ questionService.currentQuestionNumber$ | async }}<span
+        class="colored"
+        >/{{ questionService.questionCount$ | async }}
+      </span>
+    </span>
+    <button
+      class="action-button question-view-button"
+      *ngIf="questionViewToggleOption$ | async; let options"
+      (click)="questionService.setQuestionView(options.value)"
+    >
+      {{ options.text }}
+    </button>
+    <button
+      class="action-button toggle-scoring-button"
+      (click)="scoringInfoService.toggleScoreInfo()"
+      *ngIf="(scoringInfoService.scoringInfo$ | async)"
+    >
+      scoring
+    </button>
+  </div>
+</ng-container>

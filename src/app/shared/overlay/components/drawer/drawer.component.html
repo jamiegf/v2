@@ -1,0 +1,12 @@
+<div id="drawer">
+  <ng-container [ngSwitch]="drawerService.componentState$ | async">
+    <mipools-front-end-transactions class="fill-container"
+      (exitEvent)="drawerService.clearDrawerContent()"
+      *ngSwitchCase="'transactions'"
+    ></mipools-front-end-transactions>
+    <span *ngSwitchDefault
+      >Error: {{ drawerService.componentState$ | async }} is not a valid drawer
+      option</span
+    >
+  </ng-container>
+</div>

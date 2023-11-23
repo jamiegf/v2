@@ -1,0 +1,16 @@
+<button class="dropdown-menu" (click)="openMenuDropDown()">
+  <div class="dropdown-spacer"></div>
+  <span class="drop-down-text">PREDICTOR</span>
+  <div class="dropdown-content" *ngIf="openMenu">
+    <a class="dropdown-selection" routerLink="./how-to-play">HOW TO PLAY</a>
+    <a class="dropdown-selection" routerLink="/lobby">QUIT</a>
+  </div>
+
+  <div>
+    <img
+      src="assets/svg-icons/angle-down.svg"
+      class="filter-white down-arrow"
+      alt="down arrow"
+    />
+  </div>
+</button>

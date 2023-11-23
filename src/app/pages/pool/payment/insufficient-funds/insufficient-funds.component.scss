@@ -1,0 +1,53 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 5% 2rem 5%;
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+
+    .warning-icon {
+      height: 1.8rem;
+      width: auto;
+      margin: 0.25rem auto 0 auto;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      line-height: 1.2rem;
+      font-family: "Robo-Bold", Roboto, sans-serif;
+      text-align: center;
+      margin: 0.4rem auto 0.7rem;
+      letter-spacing: 0.02rem;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    flex-wrap: wrap;
+
+
+    p{
+      margin-bottom: 1rem;
+      font-family: 'Robo-Reg', Roboto, sans-serif;
+      text-align: center;
+      font-size: 0.8rem;
+      width: 90vw;
+      max-width: 300px;
+    }
+
+    .mipools-black-button {
+      min-width: 200px;
+      width: 45%;
+    }
+  }
+} 

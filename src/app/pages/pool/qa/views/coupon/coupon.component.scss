@@ -1,0 +1,24 @@
+@use 'colors';
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  .title {
+    @include colors.gameTypeColor();
+    font-family: 'grover-sc', Roboto, sans-serif;
+    line-height: 1.5rem;
+    font-size: clamp(1rem, 3vw, 1.125rem);
+    border-bottom: solid 0.2rem transparent;
+    padding-bottom: 1rem;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include colors.gameTypeBorderColor();
+  }
+}

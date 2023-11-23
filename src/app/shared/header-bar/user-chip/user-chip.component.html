@@ -1,0 +1,63 @@
+<button
+  class="account-chip"
+  *ngIf="userDetailsService.loggedIn$ | async; else loggedOut"
+  (click)="toggleDropdown$.next()"
+>
+  <div class="balance" *ngIf="balance$ | async as balance">
+    <span class="balance-cash">£{{ balance.cash }}</span>
+    <span class="balance-points">{{ balance.points }} Points</span>
+  </div>
+  <ng-template *ngTemplateOutlet="icon"></ng-template>
+  <div class="dropdown" *ngIf="showDropdown$ | async">
+    <img
+      src="assets/svg-icons/circle-user.svg"
+      alt="Account"
+      class="dropdown-user-icon"
+    />
+    <a routerLink="/account" class="link-container top">Account</a>
+    <img
+      src="assets/svg-icons/pen-to-square.svg"
+      alt="Your games"
+      class="dropdown-games-icon"
+    />
+    <a routerLink="/account/games" class="link-container">Your Games</a>
+    <button
+      class="link-container bottom"
+      (click)="toggleDropdown$.next(); userDetailsService.logout()"
+    >
+      Logout
+    </button>
+  </div>
+</button>
+
+<ng-template #loggedOut>
+  <button (click)="toggleDropdown$.next()" class="account-chip">
+    <span class="join-fun-text">Join the fun</span>
+    <div class="dropdown" *ngIf="showDropdown$ | async">
+      <a routerLink="/registration" class="link-container top">Register</a>
+      <button
+        class="link-container bottom"
+        (click)="authenticatorRedirectService.redirectToLogin()"
+      >
+        Login
+      </button>
+    </div>
+    <ng-template *ngTemplateOutlet="icon"></ng-template>
+  </button>
+</ng-template>
+
+<ng-template #icon>
+  <div class="icon-panel">
+    <img
+      src="assets/svg-icons/circle-user-solid.svg"
+      class="account-icon"
+      alt="account icon"
+    />
+    <div
+      class="log-circle"
+      [ngClass]="{ 'logged-in': userDetailsService.loggedIn$ | async }"
+    >
+      <div class="log-circle-center"></div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,21 @@
+<div class="container">
+  <img
+    [src]="calendarEvent.categoryId | categoryIcon"
+    alt="sport icon"
+    class="sport-icon"
+  />
+  <div class="calendar-details-container">
+    <span class="sport-title">{{ calendarEvent.titleText }}</span>
+    <span class="sport-date">{{ calendarEvent.dateText }}</span>
+  </div>
+  @if(calendarEvent.tournamentPools | async; as pools){
+  <div
+    class="counter-circle"
+    [ngStyle]="{ background: poolsCircleBackground$ | async }"
+  >
+    <span class="event-number"
+    >
+    {{ pools.length }}</span>
+  </div>
+  }
+</div>

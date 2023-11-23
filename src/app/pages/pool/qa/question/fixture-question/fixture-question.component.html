@@ -1,0 +1,23 @@
+<div
+  class="fixture"
+  *ngFor="let fixture of question.details.choices"
+  [ngClass]="gameType"
+>
+  <button
+    class="choice"
+    [disabled]="question.details.locked"
+    (click)="question.setAnswer(fixture.ids[0])"
+    [ngClass]="{ selected: (question.answer$ | async) === fixture.ids[0] }"
+  >
+    {{ fixture.labels[0] }}
+  </button>
+  <span  class="v">V</span>
+  <button
+    class="choice"
+    [disabled]="question.details.locked"
+    (click)="question.setAnswer(fixture.ids[1])"
+    [ngClass]="{ selected: (question.answer$ | async) === fixture.ids[1] }"
+  >
+    {{ fixture.labels[1] }}
+  </button>
+</div>

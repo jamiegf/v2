@@ -1,0 +1,37 @@
+<div
+  class="question-container"
+  *ngFor="let question of questionService.questions$ | async; index as index"
+>
+  <div class="accordion">
+    <button
+      class="header {{ activePoolService.gameType$ | async }}"
+      [ngClass]="{ answered: question.answer$ | async }"
+      (click)="questionService.setQuestionIndex(index)"
+    >
+      <span class="number" [ngClass]="{ answered: question.answer$ | async }">{{
+        index + 1
+      }}</span>
+      <div class="answer-container">
+        <span class="title" [ngClass]="{ answered: question.answer$ | async }">
+          {{ question.details.label }}</span
+        >
+        <span class="answer" *ngIf="question.answerLabel$ | async; let answer"
+          >Selected answer: {{ answer }}</span
+        >
+      </div>
+      <span class="state" [ngClass]="{ answered: question.answer$ | async }">{{
+        (questionService.listViewIndex$ | async) === index ? 'close' : 'open'
+      }}</span>
+    </button>
+    <div
+      class="content"
+      *ngIf="(questionService.listViewIndex$ | async) === index"
+    >
+      <mipools-front-end-question
+        [question]="question"
+        [gameType]="(activePoolService.gameType$ | async) || 'predictor'"
+      >
+      </mipools-front-end-question>
+    </div>
+  </div>
+</div>

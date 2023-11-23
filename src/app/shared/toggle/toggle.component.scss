@@ -1,0 +1,89 @@
+@use 'colors';
+
+.toggle-block {
+  background-color: transparent;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: auto;
+  padding: 0;
+  border-radius: 1.5rem;
+
+  @media screen and (min-width: 480px) {
+    background-color: white;
+    width: 6.5rem;
+    padding: 0.25rem;
+  }
+}
+
+.toggle-text {
+  font-family: 'Robo-Reg', Roboto, sans-serif;
+  font-size: 0.6875rem;
+  line-height: 1.1;
+  padding-left: 0.25rem;
+  color: black;
+  display: none;
+
+  @media screen and (min-width: 480px) {
+    display: block;
+  }
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 3rem;
+  height: 1.853125rem;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: colors.$light-grey;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 1.5rem;
+  width: 1.5rem;
+  left: 0.1875rem;
+  bottom: 0.1875rem;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  @include colors.gameTypeBackground();
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(1.15rem);
+  -ms-transform: translateX(1.15rem);
+  transform: translateX(1.15rem);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 2.125rem;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

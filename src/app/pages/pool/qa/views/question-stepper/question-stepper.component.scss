@@ -1,0 +1,106 @@
+@use 'colors';
+
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: auto;
+  gap: 0.5rem;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+
+  .tint {
+    position: absolute;
+    top: 0;
+    width: 0.6rem;
+    height: 100%;
+    display: block;
+
+    @media screen and (min-width: 480px) {
+      display: none;
+    }
+
+    &.left {
+      left: 0;
+      background: rgb(0, 0, 0);
+      background: linear-gradient(
+        270deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.7861738445378151) 70%,
+        rgba(0, 0, 0, 1) 100%
+      );
+    }
+
+    &.right {
+      right: 0;
+      background: rgb(0, 0, 0);
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.7861738445378151) 70%,
+        rgba(0, 0, 0, 1) 100%
+      );
+    }
+  }
+
+  .default-step-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    font-size: 1.25rem;
+    font-family: 'Robo-Med', Roboto, sans-serif;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 0.13rem solid transparent;
+    color: colors.$medium-grey;
+    font-size: 1.25rem;
+
+    &.completed {
+      border-bottom-color: white;
+      color: white;
+    }
+
+    &.selected {
+      color: white;
+
+      &.predictor {
+        border-bottom-color: colors.$predictor;
+      }
+      &.survivor {
+        border-bottom-color: colors.$survivor;
+      }
+      &.fantasy {
+        border-bottom-color: colors.$fantasy;
+      }
+    }
+  }
+}
+
+.question {
+  width: 100%;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+
+  .title {
+    font-family: 'Robo-Med', Roboto, sans-serif;
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    line-height: 1.4;
+    color: white;
+    margin: 3rem 0 0.5rem 0;
+  }
+
+  .description {
+    font-family: 'Robo-Reg', Roboto, sans-serif;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: white;
+    margin: 0 0 1rem 0;
+  }
+}

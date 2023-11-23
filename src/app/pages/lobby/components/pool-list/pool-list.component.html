@@ -1,0 +1,35 @@
+<div class="container">
+  @if (pools$ | async; as poolGroups) {
+    @for (
+      poolGroup of poolGroups;
+      track $index;
+      let first = $first;
+      let last = $last
+    ) {
+      <mipools-front-end-pool-card-container
+        [pools]="poolGroup"
+        poolPathFragment="qa"
+      ></mipools-front-end-pool-card-container>
+      <mipools-front-end-banner
+        class="banner"
+        *ngIf="first || (displayShowMoreButton$ | async) === true || !last"
+      >
+      </mipools-front-end-banner>
+    }
+    <div class="button-container">
+      <button
+        class="mipools-black-button"
+        *ngIf="displayShowMoreButton$ | async"
+        (click)="showMore()"
+      >
+        Show More Pools
+      </button>
+    </div>
+  } @else if ((pools$ | async) === undefined) {
+    <span>
+      Could not load pools. Please contact support if this problem persists
+    </span>
+  } @else {
+    <mipools-front-end-loading></mipools-front-end-loading>
+  }
+</div>

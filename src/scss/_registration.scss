@@ -1,0 +1,49 @@
+@use 'colors';
+
+.registration-form {
+  width: 90vw;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+
+  @media screen and (min-width:480px) {
+    gap: 0.5rem;
+  }
+
+  mat-form-field {
+    width: 100%;
+    height: 5.1rem;
+  }
+
+  .submit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    min-width: 220px;
+    border: 0.1rem solid colors.$mipools-green;
+    background-color: colors.$mipools-green;
+    color: black;
+    border-radius: 2rem;
+    padding: 1rem;
+    font-family: 'Robo-Med', Roboto, sans-serif;
+    margin: 1rem 0 0 0;
+    font-size: 1rem;
+    cursor: pointer;
+
+    @media screen and (min-width:480px) {
+      margin: 2rem 0 0 0;
+    }
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+
+    &.disabled {
+      opacity: 0.5;
+    }
+  }
+}

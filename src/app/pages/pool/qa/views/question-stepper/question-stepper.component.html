@@ -1,0 +1,38 @@
+<div class="stepper">
+  <div class="tint left"></div>
+  <div class="tint right"></div>
+  @for (
+    question of questionService.questions$ | async;
+    track question.details.id;
+    let index = $index
+  ) {
+    <button class="step" (click)="questionService.setQuestionIndex(index)">
+      @if (question.questionIcon$ | async; as icon) {
+        <mipools-front-end-custom-step-icon
+        [icon]="icon"
+        ></mipools-front-end-custom-step-icon>
+      } @else {
+        <div
+          class="default-step-icon {{ activePoolService.gameType$ | async }}"
+          [ngClass]="{
+            completed: question.answer$ | async,
+            selected: (questionService.currentQuestionIndex$ | async) === index
+          }"
+        >
+          <span>{{ index + 1 }}</span>
+        </div>
+      }
+    </button>
+  }
+</div>
+<ng-container *ngIf="questionService.currentQuestion$ | async; let question">
+  <div class="title-container">
+    <h2 class="title">{{ question.details.label }}</h2>
+    <h3 class="description">{{ question.details.description }}</h3>
+  </div>
+  <mipools-front-end-question
+    class="question"
+    [question]="question"
+    [gameType]="(activePoolService.gameType$ | async) || 'predictor'"
+  ></mipools-front-end-question>
+</ng-container>

@@ -1,0 +1,60 @@
+$survivor: #32B5C2;
+$survivor-hover:#2e7880;
+$predictor: #ed731e;
+$predictor-hover:#bd6426;
+$fantasy: #b9509e;
+$fantasy-hover:#8c487b;
+$success: #289E73;
+$failure: #A93147;
+$light-green: #67FFC7;
+$mipools-green: #00ff74;
+$mipools-green-hover:#19bd63;
+$dark-green:#008f22;
+$extra-light-grey:#f0f0f0;
+$light-grey:#bbbbbb;
+$medium-grey:#666666;
+$medium-dark-grey:#434343;
+$dark-grey: #222222;
+$hover-grey:#111111;
+
+@mixin gameTypeBackground {
+  &.predictor {
+    background-color: $predictor;
+  }
+
+  &.survivor {
+    background-color: $survivor;
+  }
+
+  &.fantasy {
+    background-color: $fantasy;
+  }
+}
+
+@mixin gameTypeColor {
+  &.predictor {
+    color: $predictor;
+  }
+
+  &.survivor {
+    color: $survivor;
+  }
+
+  &.fantasy {
+    color: $fantasy;
+  }
+}
+
+@mixin gameTypeBorderColor {
+  &.predictor {
+    border-color: $predictor;
+  }
+
+  &.survivor {
+    border-color: $survivor;
+  }
+
+  &.fantasy {
+    border-color: $fantasy;
+  }
+}

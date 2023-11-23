@@ -1,0 +1,60 @@
+<div class="main-container" *ngIf="results$ | async; else error">
+  <h1 class="heading">Results</h1>
+
+  <div class="results-container">
+    <ng-container *ngIf="successful$ | async; let successful">
+      <div class="results" *ngIf="successful.length > 0">
+        <h2>Successful entries:</h2>
+        <a
+          class="mipools-link"
+          aria-label="Go to entry"
+          *ngFor="let entry of successful"
+          routerLink="/edit/{{ entry.gameId }}/{{
+            entry.gameConfigurationId
+          }}/{{ entry.seatId }}"
+        >
+          <span class="game">{{ entry.gameConfigurationId }}:</span>
+          {{ entry.seatId }}
+        </a>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="failed$ | async; let failed">
+      <div class="results" *ngIf="failed.length > 0">
+        <h2>Failed entries:</h2>
+        <a
+          class="mipools-link"
+          routerLink="../qa"
+          aria-label="Back to QA"
+          *ngFor="let entry of failed"
+        >
+          <span class="game">{{ entry.gameConfigurationId }}:</span>
+          {{ entry.error }}
+        </a>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="button-container">
+    <a class="mipools-black-button" routerLink="/account/games?view=upcoming">
+      To Account Games
+    </a>
+  </div>
+</div>
+<ng-template #error>
+  <div class="error-container">
+    <span>
+      Could not enter pool, please
+      <a href="mailto:helpdesk@mipools.co.uk">contact support</a> 
+      if this problem persists.
+    </span>
+    <div class="button-container">
+      <button
+        class="mipools-black-button"
+        (click)="routerHistoryService.back({ route: ['/', 'lobby'] })"
+      >
+        Back
+      </button>
+    </div>
+  </div>
+</ng-template>

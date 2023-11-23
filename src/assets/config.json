@@ -1,0 +1,4 @@
+{
+  "poolDetailsTimeToLiveMs": 60000,
+  "routesThatDisableHeaderBar": ["^\\/pool\\/\\d+\\/.*$"]
+}

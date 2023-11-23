@@ -1,0 +1,450 @@
+@use 'defaults';
+@use 'fonts';
+@use 'slider';
+@use 'how-to-play';
+@use 'colors';
+@use '@angular/material' as mat;
+@use 'registration';
+@include mat.core();
+$mipools-palette: (
+  50: #e0fff4,
+  100: #b3ffe3,
+  200: #80ffd0,
+  300: #4dffbd,
+  400: #26ffaf,
+  500: #00ffa1,
+  600: #00ff99,
+  700: #00ff8f,
+  800: #00ff85,
+  900: #00ff74,
+  A100: #ffffff,
+  A200: #f2fff7,
+  A400: #bfffd9,
+  A700: #a6ffc9,
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+  ),
+);
+
+$mipools-front-end-primary: mat.define-palette($mipools-palette);
+$mipools-front-end-accent: mat.define-palette(
+  $mipools-palette,
+  A200,
+  A100,
+  A400
+);
+$mipools-front-end-warn: mat.define-palette(mat.$red-palette);
+$mipools-front-end-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $mipools-front-end-primary,
+      accent: $mipools-front-end-accent,
+      warn: $mipools-front-end-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+
+$predictor-palette: (
+  50: #fdeee4,
+  100: #fad5bc,
+  200: #f6b98f,
+  300: #f29d62,
+  400: #f08840,
+  500: #ed731e,
+  600: #eb6b1a,
+  700: #e86016,
+  800: #e55612,
+  900: #e0430a,
+  A100: #ffffff,
+  A200: #ffe0d7,
+  A400: #ffb8a4,
+  A700: #ffa48b,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+$mipools-front-end-predictor-primary: mat.define-palette($predictor-palette);
+$mipools-front-end-predictor-accent: mat.define-palette(
+  $predictor-palette,
+  A200,
+  A100,
+  A400
+);
+$mipools-front-end-predictor-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $mipools-front-end-predictor-primary,
+      accent: $mipools-front-end-predictor-accent,
+      warn: $mipools-front-end-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+
+$survivor-palette: (
+  50: #e6f6f8,
+  100: #c2e9ed,
+  200: #99dae1,
+  300: #70cbd4,
+  400: #51c0cb,
+  500: #32b5c2,
+  600: #2daebc,
+  700: #26a5b4,
+  800: #1f9dac,
+  900: #138d9f,
+  A100: #d1f9ff,
+  A200: #9ef2ff,
+  A400: #6bebff,
+  A700: #52e7ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+$mipools-front-end-survivor-primary: mat.define-palette($survivor-palette);
+$mipools-front-end-survivor-accent: mat.define-palette(
+  $survivor-palette,
+  A200,
+  A100,
+  A400
+);
+$mipools-front-end-survivor-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $mipools-front-end-survivor-primary,
+      accent: $mipools-front-end-survivor-accent,
+      warn: $mipools-front-end-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+
+$fantasy-palette: (
+  50: #f7eaf3,
+  100: #eacbe2,
+  200: #dca8cf,
+  300: #ce85bb,
+  400: #c46aad,
+  500: #b9509e,
+  600: #b24996,
+  700: #aa408c,
+  800: #a23782,
+  900: #932770,
+  A100: #ffd4f0,
+  A200: #ffa1df,
+  A400: #ff6ece,
+  A700: #ff54c5,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+$mipools-front-end-fantasy-primary: mat.define-palette($fantasy-palette);
+$mipools-front-end-fantasy-accent: mat.define-palette(
+  $fantasy-palette,
+  A200,
+  A100,
+  A400
+);
+$mipools-front-end-fantasy-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $mipools-front-end-fantasy-primary,
+      accent: $mipools-front-end-fantasy-accent,
+      warn: $mipools-front-end-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+
+@include mat.all-component-themes($mipools-front-end-theme);
+
+.predictor-theme {
+  @include mat.all-component-colors($mipools-front-end-predictor-theme);
+}
+.fantasy-theme {
+  @include mat.all-component-colors($mipools-front-end-fantasy-theme);
+}
+.survivor-theme {
+  @include mat.all-component-colors($mipools-front-end-survivor-theme);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@font-face {
+  font-family: 'grover-sc';
+  src:
+    url('https://use.typekit.net/af/61b4d8/000000000000000000010d6d/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3')
+      format('woff2'),
+    url('https://use.typekit.net/af/61b4d8/000000000000000000010d6d/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3')
+      format('woff'),
+    url('https://use.typekit.net/af/61b4d8/000000000000000000010d6d/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3')
+      format('opentype');
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'grover-bold';
+  src:
+    url('https://use.typekit.net/af/f9ca2b/000000000000000077359fcc/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3')
+      format('woff2'),
+    url('https://use.typekit.net/af/f9ca2b/000000000000000077359fcc/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3')
+      format('woff'),
+    url('https://use.typekit.net/af/f9ca2b/000000000000000077359fcc/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3')
+      format('opentype');
+  font-display: auto;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  padding: 0 2vw 1rem 2vw;
+  max-width: 1200px; // tbc
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto;
+}
+
+.mipools-black-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: 0.1rem solid white;
+  background-color: black;
+  color: white;
+  border-radius: 2rem;
+  padding: 1rem;
+  font-family: 'Robo-Med', Roboto, sans-serif;
+  cursor: pointer;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    border: 0.1rem solid black;
+  }
+}
+
+.mipools-link {
+  color: colors.$mipools-green;
+  text-decoration: underline;
+
+  &:hover {
+    color: colors.$mipools-green-hover;
+  }
+}
+
+.mipools-green-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: 0.1rem solid colors.$light-green;
+  background-color: colors.$light-green;
+  color: black;
+  border-radius: 2rem;
+  padding: 1rem;
+  font-family: 'Robo-Med', Roboto, sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: black;
+    color: white;
+    border: 0.1rem solid colors.$light-green;
+  }
+}
+
+.fill-container {
+  width: 100%;
+  height: 100%;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+// Game type colour filters
+
+.filter-fan {
+  filter: invert(72%) sepia(95%) saturate(3260%) hue-rotate(283deg)
+    brightness(87%) contrast(86%);
+}
+
+.filter-pred {
+  filter: invert(60%) sepia(29%) saturate(6195%) hue-rotate(349deg)
+    brightness(96%) contrast(93%);
+}
+
+.filter-sur {
+  filter: invert(78%) sepia(8%) saturate(3561%) hue-rotate(139deg)
+    brightness(80%) contrast(88%);
+}
+
+.filter-white {
+  filter: brightness(0) invert(1);
+}
+
+.filter-highlight {
+  filter: invert(74%) sepia(14%) saturate(1364%) hue-rotate(99deg)
+    brightness(102%) contrast(116%);
+}
+
+.filter-red {
+  filter: invert(25%) sepia(95%) saturate(3007%) hue-rotate(343deg)
+    brightness(100%) contrast(100%);
+}
+
+.filter-yellow {
+  filter: invert(83%) sepia(100%) saturate(1837%) hue-rotate(336deg)
+    brightness(105%) contrast(103%);
+}
+
+.filter-first-prize {
+  filter: invert(83%) sepia(55%) saturate(1837%) hue-rotate(336deg)
+    brightness(105%) contrast(103%);
+}
+
+.filter-second-prize {
+  filter: invert(74%) sepia(7%) saturate(682%) hue-rotate(136deg)
+    brightness(85%) contrast(92%);
+}
+
+.filter-third-prize {
+  filter: invert(50%) sepia(41%) saturate(693%) hue-rotate(342deg)
+    brightness(101%) contrast(83%);
+}
+
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scroll-bar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.loader-backdrop {
+  background-color: #000000de;
+}
+
+/* Change the color of auto fill on Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px black inset !important;
+}
+
+/*Change text in autofill textbox*/
+input:-webkit-autofill{
+  -webkit-text-fill-color: white !important;
+}
+
+
+/* Hide mat input number up/down arrows Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide mat input number up/down arrows Firefox */
+input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.dynamic-component-container {
+  width: 100%;
+
+  .ng-star-inserted:first-child {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

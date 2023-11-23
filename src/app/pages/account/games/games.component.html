@@ -1,0 +1,77 @@
+<div class="page-container">
+  <div class="header">
+    <h1>
+      <span class="green">{{ title$ | async }}</span> games
+    </h1>
+    <div class="action-container">
+      @if ((selectedStatus$ | async) !== 'in_progress') {
+        <button (click)="setStatus('in_progress')">Live</button>
+      }
+      @if ((selectedStatus$ | async) !== 'open') {
+        <button (click)="setStatus('open')">Upcoming</button>
+      }
+      @if ((selectedStatus$ | async) !== 'settled') {
+        <button (click)="setStatus('settled')">Complete</button>
+      }
+    </div>
+  </div>
+  @if ((selectedStatus$ | async) === 'open') {
+    @if (upcomingPools$ | async; as pools) {
+      @if (pools.length > 0) {
+        <mipools-front-end-pool-card-container
+          style="width: 100%"
+          [pools]="pools"
+          poolPathFragment="edit"
+        ></mipools-front-end-pool-card-container>
+      } @else {
+        <ng-component *ngTemplateOutlet="noPools"></ng-component>
+      }
+    } @else {
+      Loading...
+    }
+  }
+  @if ((selectedStatus$ | async) === 'in_progress') {
+    @if (livePools$ | async; as pools) {
+      @if (pools.length > 0) {
+        <mipools-front-end-pool-card-container
+          style="width: 100%"
+          [pools]="pools"
+          poolPathFragment="edit"
+        ></mipools-front-end-pool-card-container>
+      } @else {
+        <ng-component *ngTemplateOutlet="noPools"></ng-component>
+      }
+    } @else {
+      Loading...
+    }
+  }
+  @if ((selectedStatus$ | async) === 'settled') {
+    @if (completedPools$ | async; as months) {
+      @if (months.length > 0) {
+        @for (month of months; track month[0]) {
+          <div class="month">{{ month[0] }}</div>
+          <mipools-front-end-pool-card-container
+            style="width: 100%"
+            [pools]="month[1]"
+            poolPathFragment="leaderboard"
+          ></mipools-front-end-pool-card-container>
+        }
+      } @else {
+        <ng-component *ngTemplateOutlet="noPools"></ng-component>
+      }
+    } @else {
+      Loading...
+    }
+  }
+</div>
+
+<ng-template #noPools>
+  <div class="no-pools-container">
+    <p class="no-pools-text">
+      No <span>{{ title$ | async }} games</span> at the moment
+    </p>
+    <button class="mipools-black-button max-width" routerLink="/lobby">
+      Browse all pools
+    </button>
+  </div>
+</ng-template>

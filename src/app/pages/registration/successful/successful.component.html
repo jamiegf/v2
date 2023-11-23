@@ -1,0 +1,20 @@
+<div class="registration-form">
+  <div class="text-container">
+    <span>
+      Welcome to MiPools.
+    </span>
+    <span>
+      Your registration has been successful and you are now
+      ready to play!
+    </span>
+  </div>
+  <div class="action-container">
+    <button
+      class="mipools-black-button"
+      (click)="authenticatorRedirectService.redirectToLogin('/account')"
+    >
+      Login
+    </button>
+    <a class="faq-button" routerLink="/faq" target="_blank">?</a>
+  </div>
+</div>

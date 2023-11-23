@@ -1,0 +1,15 @@
+.exit-button {
+  background-color: white;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .exit-cross {
+    height: 1.2rem;
+    width: auto;
+    padding: 0 0.01rem 0 0;
+  }
+}

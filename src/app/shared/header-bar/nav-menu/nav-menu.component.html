@@ -1,0 +1,83 @@
+<nav class="nav-container">
+  <button class="close-panel" (click)="sideNavRef.toggle()">
+    <p class="close-text">CLOSE</p>
+    <img
+      src="assets/svg-icons/xmark.svg"
+      alt="close"
+      class="close-icon filter-white"
+    />
+  </button>
+
+  <a routerLink="/" (click)="sideNavRef.close()" class="nav-panel"
+    >PROMOTIONS</a
+  >
+  <a routerLink="/" (click)="sideNavRef.close()" class="nav-panel"> HOME </a>
+  <a routerLink="/" (click)="sideNavRef.close()" class="nav-panel">TOP POOLS</a>
+  <a routerLink="/lobby" (click)="sideNavRef.close()" class="nav-panel"
+    >DAILY LOBBY</a
+  >
+  <a routerLink="/calendar" (click)="sideNavRef.close()" class="nav-panel"
+    >CALENDAR</a
+  >
+  <div class="nav-panel no-link">CATEGORIES<span>&nbsp;(THIS WEEK)</span></div>
+  @for (
+    item of categoryService.availableCategoryData$ | async;
+    track item.category.id
+  ) {
+    <button
+      (click)="sideNavRef.close()"
+      class="categories-dropdown"
+      [routerLink]="'lobby/' + item.category.url"
+    >
+      <p class="nav-categories">{{ item.category.title }} ({{ item.count }})</p>
+    </button>
+  }
+  <button
+    class="nav-panel sub-section first"
+    *ngIf="userDetailsService.loggedIn$ | async; else loggedOut"
+    (click)="userDetailsService.logout()"
+    (click)="sideNavRef.close()"
+  >
+    LOG OUT
+  </button>
+  <ng-template #loggedOut>
+    <button
+      class="nav-panel sub-section first"
+      (click)="authenticatorRedirectService.redirectToLogin()"
+      (click)="sideNavRef.close()"
+    >
+      LOG IN
+    </button>
+  </ng-template>
+
+  <a
+    routerLink="/faq"
+    (click)="sideNavRef.close()"
+    class="nav-panel sub-section"
+  >
+    HELPDESK
+  </a>
+  <a
+    routerLink="/responsible-gaming"
+    (click)="sideNavRef.close()"
+    class="nav-panel sub-section"
+  >
+    RESPOSIBLE GAMING
+  </a>
+  <a
+    routerLink="/pool-rules"
+    (click)="sideNavRef.close()"
+    class="nav-panel sub-section last"
+  >
+    POOL RULES
+  </a>
+  @if (userDetailsService.loggedIn$ | async) {
+    <a
+      routerLink="/account"
+      (click)="sideNavRef.close()"
+      class="nav-panel sub-section last no-top-line"
+    >
+      SETTINGS
+    </a>
+  }
+</nav>

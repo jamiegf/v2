@@ -1,0 +1,36 @@
+<div class="choice-container">
+  <button
+    *ngFor="let choice of question.details.choices"
+    class="choice {{ gameType }}"
+    [ngClass]="{ selected: (question.answer$ | async) === choice.id }"
+    (click)="question.setAnswer(choice.id)"
+    [attr.aria-expanded]="
+      (question.answer$ | async) === choice.id && choice.meta
+    "
+  >
+    <span class="number" *ngIf="choice.title">{{ choice.title }}</span>
+    <img
+      class="answer-icon"
+      *ngIf="choice.customAnswerIcon"
+      [src]="choice.customAnswerIcon"
+      alt="answer-icon"
+    />
+    <div class="details-container">
+      <span class="label">{{ choice.label }}</span>
+      <span class="description" *ngIf="choice.description">{{
+        choice.description
+      }}</span>
+      <div
+        class="meta-container"
+        *ngIf="(question.answer$ | async) === choice.id && choice.meta"
+      >
+        <span class="meta-item" *ngFor="let item of choice.meta">
+          {{ item }}
+        </span>
+      </div>
+    </div>
+    <span class="expanded-icon" *ngIf="choice.meta">{{
+      (question.answer$ | async) === choice.id ? 'close' : 'open'
+    }}</span>
+  </button>
+</div>

@@ -1,0 +1,68 @@
+<div class="controls" *ngIf="activePoolService.gameId$ | async; let gameId">
+  <ng-container
+    *ngIf="
+      poolFlowControlService.backButtonAction$ | async;
+      let backButtonAction
+    "
+  >
+    <a
+      *ngIf="backButtonAction.type === 'link'"
+      [routerLink]="backButtonAction.url"
+      class="back-arrow"
+      [ngClass]="activePoolService.gameType$ | async"
+    >
+      <img
+        src="assets/svg-icons/chevron-left.svg"
+        alt="back"
+        class="filter-white"
+      />
+    </a>
+    <button
+      *ngIf="backButtonAction.type === 'button'"
+      (click)="backButtonAction.action()"
+      class="back-arrow"
+      [ngClass]="activePoolService.gameType$ | async"
+    >
+      <img
+        src="assets/svg-icons/chevron-left.svg"
+        alt="back"
+        class="filter-white"
+      />
+    </button>
+  </ng-container>
+  <ng-container
+    *ngIf="poolFlowControlService.actionState$ | async; let actionState"
+  >
+    <a
+      *ngIf="actionState.type === 'link'"
+      [routerLink]="actionState.url"
+      class="action"
+      [ngClass]="activePoolService.gameType$ | async"
+    >
+      {{ actionState.text }}
+    </a>
+    <button
+      *ngIf="actionState.type === 'button'"
+      class="action"
+      [attr.aria-label]="actionState.ariaLabel"
+      [ngClass]="activePoolService.gameType$ | async"
+      (click)="actionState.action()"
+      [disabled]="actionState.disabled"
+    >
+      {{ actionState.text }}
+    </button>
+  </ng-container>
+  <a
+    class="how-to-button"
+    routerLink="./how-to-play"
+    *ngIf="poolFlowControlService.displayHowToPlay$ | async"
+  >
+    <div class="how-to-text">How to play</div>
+    <div
+      class="how-to-question-mark"
+      [ngClass]="activePoolService.gameType$ | async"
+    >
+      ?
+    </div>
+  </a>
+</div>

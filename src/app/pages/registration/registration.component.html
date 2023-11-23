@@ -1,0 +1,9 @@
+<div class="registration-container">
+  @if (((registrationService.stage$ | async) || 0) <= 3 ) {
+    <mipools-front-end-registration-stepper></mipools-front-end-registration-stepper>
+  }
+  <h1>{{ registrationService.title$ | async }}</h1>
+  <router-outlet></router-outlet>
+  <br />
+  <br />
+</div>

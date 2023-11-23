@@ -1,0 +1,20 @@
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+  pointer-events: none;
+
+  &.backdrop {
+    background-color: #000000a6;
+    pointer-events: all;
+  }
+
+  .drawer {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

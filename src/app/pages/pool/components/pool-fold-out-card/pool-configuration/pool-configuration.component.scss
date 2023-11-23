@@ -1,0 +1,59 @@
+@use 'colors';
+
+.configuration {
+  width: 100%;
+  height: 7.625rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 3fr 1fr;
+  place-items: center center;
+  background-color: colors.$hover-grey;
+  border: solid 0.1rem transparent;
+  border-radius: 0.625rem;
+  padding: 0.15rem 0.5rem 0 0.5rem;
+
+  &.selected {
+    border-color: white;
+  }
+
+  .features {
+    grid-row: 1 / span 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .top-text {
+    font-family: 'Robo-Reg', Roboto, sans-serif;
+    font-size: 0.75rem;
+    color: colors.$medium-grey;
+  }
+
+  .players  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.75rem;
+    width: 3.75rem;
+    background-color: black;
+    font-family: "Robo-Med", Roboto, sans-serif;
+    font-size: 1.125rem;
+    border-radius: 0.35rem;
+    @include colors.gameTypeColor();
+  }
+
+  .fee {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.75rem;
+    width: 3.75rem;
+    background-color: white;
+    color: black;
+    font-family: "Robo-Med", Roboto, sans-serif;
+    font-size: 1.125rem;
+    border-radius: 0.35rem;
+  }
+
+}

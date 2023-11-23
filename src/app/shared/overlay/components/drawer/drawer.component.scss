@@ -1,0 +1,17 @@
+$min-drawer-width: 600px;
+
+#drawer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  min-width: $min-drawer-width;
+  background-color: black;
+  max-width: $min-drawer-width;
+
+  @media (max-width: $min-drawer-width) {
+    max-width: 100vw;
+    min-width: 100vw;
+  }
+}

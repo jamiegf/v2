@@ -1,0 +1,18 @@
+<div class="category-container">
+  <a
+    class="category"
+    *ngFor="let icon of categoryIcons$ | async"
+    [routerLink]="icon.routerLink"
+    [ngClass]="{ selected: icon.selected }"
+  >
+    <img
+      [src]="icon.category.icon"
+      [alt]="icon.category.title"
+      [ngClass]="{ selected: icon.selected }"
+    />
+    <span class="count" 
+      [ngClass]="{ selected: icon.selected }">
+      {{ icon.count }}
+    </span>
+  </a>
+</div>

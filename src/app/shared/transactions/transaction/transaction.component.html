@@ -1,0 +1,49 @@
+<div class="transaction">
+  <div class="row header">
+    <span class="status" [ngClass]="transaction.type">
+      <b>{{ transaction.type }}</b>
+    </span>
+    <span class="money">
+      <b>{{ transaction.amountString }}</b>
+    </span>
+  </div>
+  <div class="row">
+    <span class="date">
+      {{ transaction.timestamp | date: 'EEE dd MMMM yyyy, HH:mm' }}
+    </span>
+  </div>
+  <div class="row">
+    <span class="section">
+      <b class="section-bold">
+        <span
+          class="pool-type"
+          *ngIf="transaction.poolType"
+          [ngClass]="transaction.poolType"
+        >
+          {{ transaction.poolType }}
+        </span>
+        <span
+          class="transaction-details"> Pool:</span>
+      </b>
+      {{ transaction.pool }}
+    </span>
+  </div>
+  <div class="row">
+    <span class="section">
+      <b class="section-bold"> Description: </b>
+      {{ transaction.description }}
+    </span>
+  </div>
+  <div class="row">
+    <span class="section">
+      <b class="section-bold"> Table: </b>
+      {{ transaction.table }}, Seat: {{ transaction.seat }}
+    </span>
+  </div>
+  <div class="row">
+    <span class="section">
+      <b class="section-bold"> Transaction ID: </b>
+      {{ transaction.id }}
+    </span>
+  </div>
+</div>

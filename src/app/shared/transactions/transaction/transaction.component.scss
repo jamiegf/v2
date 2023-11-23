@@ -1,0 +1,79 @@
+@use 'colors';
+
+.transaction {
+  width: 100%;
+  min-height: 175px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+  color: black;
+  padding: 1rem 1.65rem 1rem 1rem;
+  font-size: 1rem;
+
+  .row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+
+    &.header {
+      justify-content: space-between;
+      font-family: "Robo-Bold", Roboto, sans-serif;
+      font-size: 0.875rem;
+
+      .money {
+        font-family: "Robo-Reg", Roboto, sans-serif;
+        font-size: 0.875rem;
+        color: colors.$dark-grey;
+      }
+
+      .status {
+        text-transform: uppercase;
+
+        &.win {
+          color: colors.$success;
+        }
+
+        &.withdraw {
+          color: colors.$failure;
+        }
+      }
+    }
+
+    .date {
+      font-size: 0.75em;
+      font-family: "Robo-Reg", Roboto, sans-serif;
+      opacity: 0.5;
+    }
+
+    .section {
+      margin-right: 6px;
+      font-family: "Robo-Reg", Roboto, sans-serif;
+      font-size: 0.875rem;
+
+      .section-bold {
+        margin-right: 6px;
+        font-family: "Robo-Bold", Roboto, sans-serif;
+        font-size: 0.875rem;
+      }
+
+      .pool-type {
+        text-transform: capitalize;
+        font-family: "Robo-Bold", Roboto, sans-serif;
+        font-size: 0.875rem;
+
+
+        @include colors.gameTypeColor();
+      }
+
+      .transaction-details {
+        font-family: "Robo-Bold", Roboto, sans-serif;
+        font-size: 0.875rem;
+      }
+    }
+  }
+}

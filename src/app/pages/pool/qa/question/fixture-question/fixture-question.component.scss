@@ -1,0 +1,60 @@
+@use 'colors';
+
+.fixture {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+
+  .choice {
+    display: block;
+    width: 45%;
+    min-height: 3rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid transparent;
+    font-family: 'Robo-Reg', Roboto, sans-serif;
+    background-color: colors.$medium-dark-grey;
+    text-align: center;
+    padding: 0 0.5rem;
+    word-break: break-word;
+    font-size: 0.90625rem;
+    line-height: 1.2;
+
+    @media screen and (min-width: 480px) {
+      font-size: 1.0625rem;
+    }
+
+    &:disabled {
+      opacity: 0.8;
+    }
+  }
+
+  span {
+    font-family: 'Robo-Reg', Roboto, sans-serif;
+    font-size: 1.25rem;
+  }
+}
+
+.predictor {
+  .choice.selected,
+  .choice:hover {
+    color: colors.$predictor;
+    border: 0.1rem solid white;
+  }
+}
+.survivor {
+  .choice.selected,
+  .choice:hover {
+    color: colors.$survivor;
+    border: 0.1rem solid white;
+  }
+}
+.fantasy {
+  .choice.selected,
+  .choice:hover {
+    color: colors.$fantasy;
+    border: 0.1rem solid white;
+  }
+}

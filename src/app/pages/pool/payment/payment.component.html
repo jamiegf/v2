@@ -1,0 +1,86 @@
+<ng-container *ngIf="activePoolService.poolData$ | async; let poolData">
+  <div class="header" [ngClass]="poolData.poolInfo.gameType">
+    <div class="trapezium">
+      <span class="sport">
+        {{ poolData.poolDetails.category.title.toUpperCase() }}
+      </span>
+    </div>
+    <h1 class="title">Payment</h1>
+    <div class="balance-container" *ngIf="balance$ | async; let balance">
+      <span class="balance-title">Available</span>
+      <div class="balance-items">
+        <span *ngIf="balance.cash !== undefined">
+          {{ balance.cash | currency }} cash
+        </span>
+        <span
+          *ngIf="balance.points !== undefined && balance.cash !== undefined"
+          class="divider"
+        >
+          &nbsp;|&nbsp;
+        </span>
+        <span *ngIf="balance.points !== undefined">
+          {{ balance.points }} points
+        </span>
+      </div>
+    </div>
+  </div>
+  <mipools-front-end-insufficient-funds
+    *ngIf="
+      (entryService.entryCompletionState$ | async) === 'insufficientBalance'
+    "
+    [balanceType]="(entryService.selectedPaymentMethod$ | async) || 'funds'"
+  ></mipools-front-end-insufficient-funds>
+  <div class="payment" *ngIf="entryService.state$ | async; let state">
+    <span>Select a way to pay:</span>
+    <div class="payment-methods">
+      <button
+        class="payment-method cash"
+        [ngClass]="{ selected: state.selectedPaymentMethod === 'cash' }"
+        ariaLabel="select cash as payment method"
+        (click)="entryService.selectPaymentMethod('cash')"
+      >
+        <span [ngClass]="poolData.poolInfo.gameType">Cash</span>
+      </button>
+      <button
+        *ngIf="entryService.displayPointsPaymentMethod$ | async"
+        [disabled]="entryService.disablePointsPaymentMethod$ | async"
+        [ngClass]="{ selected: state.selectedPaymentMethod === 'points' }"
+        class="payment-method points"
+        ariaLabel="select points as payment method"
+        (click)="entryService.selectPaymentMethod('points')"
+      >
+        <span [ngClass]="poolData.poolInfo.gameType">Points</span>
+      </button>
+    </div>
+    <hr />
+    <span class="entries-subhead">Select your entry fees:</span>
+    <span class="info">Entry fee includes a 10% fee</span>
+    <div class="entries">
+      <button
+        class="entry"
+        *ngFor="let config of state.configurations; index as index"
+        (click)="entryService.selectConfiguration(index)"
+      >
+        <div class="fee" [ngClass]="{ selected: config.selected }">
+          <span [ngClass]="poolData.poolInfo.gameType">{{
+            config.details.fee | convertGeAmountToText: { showFreeText: true }
+          }}</span>
+        </div>
+        <span class="prize-title">Prize:</span>
+        <span class="prize">{{
+          config.details.prize
+            | convertGeAmountToText: { isPoints: config.details.payoutInPoints }
+        }}</span>
+        <span class="players"
+        [ngClass]="poolData.poolInfo.gameType"
+        >Players: {{ config.details.players }}</span>
+      </button>
+    </div>
+    <hr />
+    <span class="total" 
+      *ngIf="entryService.total$ | async; let total">
+      Total:
+      {{ total }}
+    </span>
+  </div>
+</ng-container>

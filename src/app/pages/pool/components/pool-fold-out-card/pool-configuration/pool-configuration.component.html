@@ -1,0 +1,18 @@
+<div class="configuration" [ngClass]="{selected: selected}">
+  <div class="features">
+    TODO
+  </div>
+  <span class="top-text">Prize:</span>
+  <span class="top-text">Players:</span>
+  <span class="top-text">Fee:</span>
+  <span class="prize">{{
+    configuration.prize
+      | convertGeAmountToText: { isPoints: configuration.payoutInPoints }
+  }}</span>
+  <div class="players" [ngClass]="poolData.poolInfo.gameType" *ngIf="activePoolService.poolData$ | async; let poolData">
+    {{ configuration.players }}
+  </div>
+  <div class="fee">
+    {{ configuration.fee | convertGeAmountToText: { showFreeText: true } }}
+  </div>
+</div>

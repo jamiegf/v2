@@ -1,0 +1,13 @@
+<ng-container *ngIf="overlayService.overlayState$ | async as overlayState">
+  <button
+    id="overlay"
+    [ngClass]="{ backdrop: overlayService.showBackdrop$ | async }"
+    (click)="overlayService.triggerCloseClickEvent()"
+  >
+    <mipools-front-end-drawer
+      class="cursor-default drawer"
+      (click)="stopPropagation($event)"
+      *ngIf="overlayState.drawer"
+    ></mipools-front-end-drawer>
+  </button>
+</ng-container>

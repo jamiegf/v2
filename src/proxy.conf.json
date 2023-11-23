@@ -1,0 +1,16 @@
+{
+  "/api/middleware": {
+    "target": "https://stg-mw.mipools.com",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": { "^/api/middleware": "/api" }
+  },
+  "/api/auth": {
+    "target": "https://stg-authenticator.mipools.com",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": { "^/api/auth": "" }
+  }
+}

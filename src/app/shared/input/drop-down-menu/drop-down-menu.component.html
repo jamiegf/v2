@@ -1,0 +1,12 @@
+<ng-content></ng-content>
+<ng-container *ngIf="display$ | async">
+  <div class="drop-down-menu">
+    <button
+      class="option"
+      *ngFor="let option of options; index as i"
+      (click)="selectedIndexEmitter.emit(i); toggle()"
+    >
+      {{ option }}
+    </button>
+  </div>
+</ng-container>

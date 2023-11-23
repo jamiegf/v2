@@ -1,0 +1,74 @@
+<div class="account-page-container" *ngIf="userDetailsService.loggedIn$; else loading">
+
+  <div class="account-user-details-container">
+    <div class="account-user-name-container">
+      <span class="greeting"><span class="highlight">Hi!</span> {{ userDetailsService.name$ | async }}</span>
+      <div class="user-details">
+        <span class="username">Username: {{ userDetailsService.username$ | async }}</span>
+        <span class="deposit">Net Deposit: £{{ (balance$ | async)?.netDeposit?.toFixed(2) }}</span>
+      </div>
+    </div>
+    <div class="account-settings-container">
+      <span class="settings">settings</span>
+      <img src="assets/svg-icons/gear.svg" class="settings-icon filter-highlight" alt="settings icon">
+    </div>
+  </div>
+
+  <div class="account-details">
+    <div class="account-details-block">
+      <div class="account-item">
+        <span class="balance"> £{{ (balance$ | async)?.cash?.toFixed(2) }} </span>
+        <span class="details"> Your wallet </span>
+      </div>
+      <div class="account-item">
+        <span class="balance">
+          {{ (balance$ | async)?.points }}
+        </span>
+        <span class="details"> Your points </span>
+      </div>
+    </div>
+
+    <ng-container *ngIf="stats$ | async as stats; else loading">
+      <div class="account-details-block">
+        <div class="account-item">
+          <span class="balance">
+            £{{ stats.moneyInPlay }}
+          </span>
+          <span class="details"> Money in play </span>
+        </div>
+        <div class="account-item">
+          <span class="balance">
+            £{{ stats.potentialWinnings }}
+          </span>
+          <span class="details"> Potential winnings </span>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+
+  <div class="action-block">
+    <span class="action-head">What would you like to do today?</span>
+    <div class="action-container">
+      <a class="action" routerLink="deposit">
+        <span class="action-text">Deposit Funds</span>
+        <img src="assets/svg-icons/chevron-right.svg" class="filter-white right-chevron" alt="right chevron">
+      </a>
+      <a class="action" routerLink="withdraw">
+        <span class="action-text">Withdraw Funds</span>
+        <img src="assets/svg-icons/chevron-right.svg" class="filter-white right-chevron" alt="right chevron">
+      </a>
+      <button class="action" (click)="showTransactions()">
+        <span class="action-text">Transactions</span>
+        <img src="assets/svg-icons/chevron-right.svg" class="filter-white right-chevron" alt="right chevron">
+      </button>
+    </div>
+  </div>
+
+  <a class="mipools-black-button" routerLink="games"> Your Games </a>
+  
+</div>
+
+<ng-template #loading>
+  <mipools-front-end-loading></mipools-front-end-loading>
+</ng-template>

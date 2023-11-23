@@ -1,0 +1,24 @@
+<header *ngIf="headerBarService.displayHeader | async">
+  <div class="menu-left-panel">
+    <button class="menu-open-panel" (click)="sideNavRef.toggle()">
+      <img
+        src="https://media.miomni.com/uploads/MiPools-Icon.png"
+        alt="MiPools Icon"
+        class="mipools-icon"
+      />
+      <span class="menu-subhead">MENU</span>
+    </button>
+  </div>
+  <div class="menu-center-panel">
+    <a routerLink="/" class="logo">
+      <img
+        src="https://media.miomni.com/uploads/MiPools-Logo.png"
+        alt="MiPools Icon"
+        class="mipools-logo"
+      />
+    </a>
+  </div>
+  <div class="menu-right-panel">
+    <mipools-front-end-user-chip></mipools-front-end-user-chip>
+  </div>
+</header>

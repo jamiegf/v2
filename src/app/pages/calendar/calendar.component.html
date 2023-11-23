@@ -1,0 +1,43 @@
+<h1 class="heading">EVENTS CALENDAR</h1>
+
+@if (calendarService.calendar$ | async; as calendar) {
+  @for (month of calendar; track month.date) {
+    <div class="calendar-container">
+      <div class="calendar-header">
+        <h2 class="month">
+          {{ month.date | formatStringDate: 'dd/LL/yyyy' : 'LLLL' }}
+        </h2>
+        @if (month.headerLink) {
+          <a [routerLink]="month.headerLink">
+            <img [src]="month.headerImage" alt="event" class="event-image" />
+          </a>
+        } @else {
+          <img [src]="month.headerImage" alt="event" class="event-image" />
+        }
+      </div>
+      <div class="calendar-bottom">
+        @for (event of month.events; track event.dateText) {
+          @if (event.active && event.link && (event.tournamentPools | async)) {
+            <a class="calendar-panel live-link" [routerLink]="event.link">
+              <mipools-front-end-calendar-event
+                [calendarEvent]="event"
+              ></mipools-front-end-calendar-event>
+            </a>
+          } @else {
+            <div class="calendar-panel">
+              <mipools-front-end-calendar-event
+                [calendarEvent]="event"
+              ></mipools-front-end-calendar-event>
+            </div>
+          }
+        } @empty {
+          <span>No events</span>
+        }
+      </div>
+    </div>
+  } @empty {
+    <span>Empty calendar</span>
+  }
+} @else {
+  <span>Error</span>
+}

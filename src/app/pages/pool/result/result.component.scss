@@ -1,0 +1,116 @@
+@use 'colors';
+
+a {
+  text-decoration: none;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 90vw;
+  max-width: 600px;
+  margin: 4rem auto 4rem auto;
+
+  .heading {
+    font-family: 'Robo-Bold', Roboto, sans-serif;
+    font-size: 1.6625rem;
+    line-height: 1.4rem;
+    color: white;
+    text-align: center;
+    margin: 0 auto 2rem auto;
+  }
+}
+
+.results-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.25rem;
+  width: 100%;
+
+  @media screen and (min-width: 480px) {
+    flex-direction: row;
+  }
+
+  .results {
+    background-color: colors.$dark-grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+    padding: 1.2rem;
+    border-radius: 0.75rem;
+    max-width: 22rem;
+  }
+
+  h2 {
+    font-family: 'Robo-Bold', Roboto, sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    color: white;
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+
+  .mipools-link {
+    font-family: 'Robo-Reg', Roboto, sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.3rem;
+    color: white;
+    text-align: center;
+    border-top: 0.09rem solid colors.$medium-dark-grey;
+    width: 100%;
+    padding: 0.3rem 0;
+
+    &:last-child {
+      border-bottom: 0.09rem solid colors.$medium-dark-grey;
+    }
+
+    .game {
+      color: colors.$light-green;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 90vw;
+    max-width: 300px;
+    margin: 6rem auto 4rem auto;
+
+    span {
+        font-family: 'Robo-Med', Roboto, sans-serif;
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+        color: white;
+        text-align: center;
+        margin: 0 auto 0 auto;
+    }
+
+    a {
+        color: colors.$light-green;
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+}
+
+.button-container {
+  width: 70vw;
+  max-width: 15rem;
+  margin: 2rem auto 2rem auto;
+}

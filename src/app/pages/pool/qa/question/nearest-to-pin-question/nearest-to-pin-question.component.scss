@@ -1,0 +1,63 @@
+// the styles for the slider are located under scss/_slider.scss
+@use 'colors';
+
+.container {
+  width: 90vw;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem auto 0 auto;
+
+  .slider {
+    width: 100%;
+  }
+
+  .input-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    position: relative;
+
+    .enter-text {
+      position: absolute;
+      top: -0.53rem;
+      background-color: black;
+      color: white;
+      font-size: 0.65rem;
+      padding: 0 0.4rem;
+    }
+
+    .number-input {
+      border: solid 0.2rem white;
+      width: 10rem;
+      font-size: 1.5rem;
+      background: transparent;
+      border-radius: 0.4rem;
+      padding: 0.5rem;
+      color: white;
+      text-align: center;
+
+      &.invalid {
+        border: solid 0.2rem colors.$failure;
+      }
+
+      &:focus-visible {
+        outline: solid 0.15rem white;
+
+        &.predictor {
+          outline: solid 0.15rem colors.$predictor;
+        }
+
+        &.fantasy {
+          outline: solid 0.15rem colors.$fantasy;
+        }
+
+        &.survivor {
+          outline: solid 0.15rem colors.$survivor;
+        }
+      }
+    }
+  }
+}

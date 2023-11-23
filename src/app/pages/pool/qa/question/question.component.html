@@ -1,0 +1,36 @@
+@if (
+  question.details.locked === true && (question.answer$ | async) === undefined
+) {
+  <mipools-front-end-locked-question
+    [gameType]="gameType"
+  ></mipools-front-end-locked-question>
+} @else {
+  @switch (question.type) {
+    @case ('multipleChoice') {
+      <mipools-front-end-multiple-choice-question
+        class="question"
+        [question]="question"
+        [gameType]="gameType"
+      >
+      </mipools-front-end-multiple-choice-question>
+    }
+    @case ('nearestToPin') {
+      <mipools-front-end-nearest-to-pin-question
+        class="question"
+        [question]="question"
+        [gameType]="gameType"
+      >
+      </mipools-front-end-nearest-to-pin-question>
+    }
+    @case ('fixture') {
+      <mipools-front-end-fixture-question
+        class="question"
+        [question]="question"
+        [gameType]="gameType"
+      ></mipools-front-end-fixture-question>
+    }
+    @default {
+      <span>Error, question type invalid.</span>
+    }
+  }
+}

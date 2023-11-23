@@ -1,0 +1,610 @@
+<div class="main-continer">
+  <div class="text-container">
+    <div class="header-container">
+      @if (currentStep === Steps.STEP_1) {
+        <p class="header">POOL RULES</p>
+      }
+      @if (currentStep === Steps.STEP_2) {
+        <p class="header predictor">PREDICTOR RULES</p>
+      }
+      @if (currentStep === Steps.STEP_3) {
+        <p class="header fantasy">FANTASY RULES</p>
+      }
+      @if (currentStep === Steps.STEP_4) {
+        <p class="header survivor">SURVIVOR RULES</p>
+      }
+    </div>
+    <div class="button-container">
+      <button class="rule-button main" (click)="currentStep = Steps.STEP_1">
+        POOL RULES
+      </button>
+      <button class="rule-button predictor" (click)="currentStep = Steps.STEP_2">
+        PREDICTOR RULES
+      </button>
+      <button class="rule-button fantasy" (click)="currentStep = Steps.STEP_3">
+        FANTASY RULES
+      </button>
+      <button class="rule-button survivor" (click)="currentStep = Steps.STEP_4">
+        SURVIVOR RULES
+      </button>
+    </div>
+
+    @if (currentStep === Steps.STEP_1) {
+      <div class="rules-container">
+        <hr class="divider-line" />
+        <h3 class="text-subhead">Mipools' Pool Rules</h3>
+        <p class="panel-text">
+          These rules form part of i-pools’ Terms & Conditions and all
+          definitions used are as set out in that document. MiPOOLS makes every
+          effort to ensure that our rules are fair and transparent; if you feel
+          that this is not the case for any reason, please contact us:
+          <a href="mailto:helpdesk@mipools.co.uk">helpdesk&#64;mipools.co.uk</a>
+          and we will investigate.
+        </p>
+        <h4 class="small-subhead">We offer three game types:</h4>
+        <p class="panel-text indent">
+          &#x25A0; <span class="bold predictor">PREDICTOR;</span> predict the
+          key stats to score points and win a prize.
+        </p>
+        <p class="panel-text indent">
+          &#x25A0; <span class="bold fantasy">FANTASY;</span> pick your squad to
+          earn points and win a prize.
+        </p>
+        <p class="panel-text indent">
+          &#x25A0; <span class="bold survivor">SURVIVOR;</span> just keep
+          picking a winner each round to outlast the others and scoop the prize
+          pool.
+        </p>
+
+        <hr class="divider-line" />
+        <h3 class="text-subhead">Pool Sizes</h3>
+        <p class="panel-text">
+          Standard & Free to Play Pools; Most pools have limits on the number of
+          entries one player can join. Please always check the rules for this
+          limit. Users cannot enter the same pool with the same Predictions,
+          Picks or Selections. Players can only join Free to Play once.
+        </p>
+        <p class="panel-text">
+          The Net Prizefund in each Standard pool will be the aggregate of all
+          the Users’ entry fees minus the Administration Fee. Unless otherwise
+          stated, the number of Prizes paid out in an Standard Pool depends on
+          the number of entries. The number of Prizes and the split of the Net
+          Prizefund will be determined according to the Payout Structure.
+        </p>
+
+        <hr class="divider-line" />
+        <h3 class="text-subhead">Payout Structure</h3>
+        <p class="panel-text">
+          <span class="bold"
+            >Unless otherwise stated, Prizefunds will be distributed according
+            to the Payout Structures set out below.</span
+          >
+        </p>
+        <p class="panel-text">
+          Net Prizefunds are distributed to the winner(s) after the deduction of
+          the Administration Fee which is calculated by multiplying the entry
+          fees by the percentage disclosed in the Pool details. Unless otherwise
+          stated, the Administration Fee varies between 14% and 20% according to
+          the type of pool (see Terms & Conditions, 7. Administration Fees)
+        </p>
+        <p class="panel-text">
+          The Payout Structure for unlimited pools will add more prizes the more
+          entries are in the pool as detailed below. The Payout Structure is
+          always stated in the pool description at the top of the pool, but the
+          number of prizes awarded and the prizes themselves may change as more
+          players enter.
+        </p>
+        <p class="panel-text">
+          Predictor and Fantasy Pools (unless otherwise stated):
+        </p>
+        <p class="panel-text indent no-margin">
+          &#x25A0; for pools up to 9 entries, there will be only one Prize, 1st
+          Prize, which will receive 100% of the Net Prizefund
+        </p>
+        <p class="panel-text indent no-margin">
+          &#x25A0; for pools with 10 or more entries, additional prizes will be
+          added each time the number of entrants increases past a multiple of
+          ten (1 additional prize) up to 30 players, then 15 (1 additional
+          prize) up to 60 players, then 20 (1 additional prize) up to 100
+          players, then 25 (1 additional prize) and 2 additional prizes for
+          every 50 players added.
+        </p>
+        <p class="panel-text indent no-margin">
+          &#x25A0; the Net Prizefund will be split between the Prizes so that
+          second Prize is approximately 50% of first Prize, third Prize will be
+          approximately 50% of second Prize and smaller prizes will step down in
+          smaller increments.
+        </p>
+        <p class="panel-text indent no-margin">
+          &#x25A0; Unless otherwise stated this is the Standard Payout Structure
+          applicable for all Unlimited Predictor and Fantasy Pools.
+        </p>
+        <p class="panel-text">
+          Fantasy Pools with Target Score (unless otherwise stated):
+        </p>
+
+        <hr class="divider-line" />
+        <h3 class="text-subhead">Rules applying to all Pools</h3>
+        <p class="panel-text indent">
+          &#x25A0; for Fantasy pools that require Users to reach a target score
+          to win the pool 100% of the Net Prizefund will go to the winner(s).
+        </p>
+
+        <hr class="divider-line" />
+        <h3 class="text-subhead">Survivor Pools (unless otherwise stated):</h3>
+        <p class="panel-text indent">
+          &#x25A0; 100% of the Net Prizefund goes to the User(s) who last(s)
+          longest
+        </p>
+
+        <hr class="divider-line" />
+        <h3 class="text-subhead">Rules applying to all Pools</h3>
+        <p class="panel-text"><span class="bold">Entering a pool:</span></p>
+        <p class="panel-text indent">
+          &#x25A0; To enter a pool a User must answer all the relevant questions
+          and/or make all the necessary selections and then confirm.
+        </p>
+        <p class="panel-text indent">
+          &#x25A0; To enter a Pool Users must have sufficient funds in their
+          MiPools Account to pay the entry fee(s). (we provide no credit
+          facilities of any kind).
+        </p>
+        <p class="panel-text indent">
+          &#x25A0; Once a User has entered a pool a bet is struck and the entry
+          cannot be cancelled (for exceptions see Cancellations/Voiding below).
+        </p>
+        <p class="panel-text"><span class="bold">Editing selections:</span></p>
+        <p class="panel-text">
+          A User can edit selections for a pool at any point before the pool’s
+          Start Time displayed in the pool details.
+        </p>
+        <p class="panel-text"><span class="bold">Pool settlement:</span></p>
+        <p class="panel-text">
+          Our aim is to settle all pools within 30 minutes if the End Date is
+          between the hours of 8am and 10pm. For End Dates outside these times
+          settlement will sometimes be delayed until 8am the next day.
+        </p>
+        <p class="panel-text">
+          If settlement of a pool is delayed for any other reason, we will try
+          to ensure an announcement is made in the chat box as soon as
+          practically possible.
+        </p>
+        <p class="panel-text">
+          MiPools relies on data provided by Sports Radar and Goal Serve, third
+          party data providers (or, where applicable, the media consensus
+          derived from public sources) as the source of our results; in the
+          event of a dispute, the data provided by third parties public sources
+          and our transaction log will be the deciding factors.
+        </p>
+        <p class="panel-text">
+          If Sports Radar does not provide the relevant data to settle a pool,
+          MiPools reserves the right to settle the pool as we see fit according
+          to the media consensus or any other data we may choose to rely on.
+        </p>
+        <p class="panel-text">
+          If any of the results data used to settle an event or pool are changed
+          AFTER the settlement of a pool for any reason other than an error by
+          us, such as data errors, disqualifications, replays or the suspicion
+          of criminal or fraudulent activity, the results of the pool will
+          stand.
+        </p>
+        <p class="panel-text">
+          If a pool is settled erroneously for any other reason, i-pools will
+          make every effort to correct any error(s) as soon as practically
+          possible, including the reallocation of prizes if necessary. A User
+          who believes that an error has been made in settling a pool should
+          contact
+          <a href="mailto:helpdesk@mipools.co.uk">helpdesk&#64;mipools.co.uk</a>
+          immediately or refer to our Complaints and Disputes Procedures set out
+          in our Terms and Conditions.
+        </p>
+        <p class="panel-text">
+          The nature of the pools may give rise to ambiguities in some questions
+          in some unforeseen circumstances. MiPools reserves the right to
+          interpret all questions and selections and settle all pools at its
+          absolute discretion based on our original intent whilst at all times
+          ensuring a fair and transparent outcome for all Users. If a User
+          requires clarification on any question or aspect of the rules or does
+          not agree with a decision made by MiPpools , they should contact
+          <a href="mailto:helpdesk@mipools.co.uk">helpdesk&#64;mipools.co.uk</a>
+          or refer to our Complaints and Disputes Procedures set out in our
+          Terms and Conditions.
+        </p>
+        <p class="panel-text">
+          <span class="bold"
+            >Cancelling/Voiding pools or questions or entries:</span
+          >
+        </p>
+        <p class="panel-text">
+          i-pools may cancel a pool or a question (by withdrawing it BEFORE the
+          Start Time) or void a pool or question (by withdrawing it AFTER t he
+          Start Time but before Settlement) for reasons including, but not
+          limited to:
+        </p>
+        <p class="panel-text no-margin">
+          &#x25A0; cancelled or postponed events or elements of an event which
+          make the pool invalid
+        </p>
+        <p class="panel-text no-margin">
+          &#x25A0; suspected criminal or fraudulent activity
+        </p>
+        <p class="panel-text no-margin">
+          &#x25A0; data errors (see ‘Errors, Omission and Changes’ below) where
+          the nature of a pool or question has been unacceptably distorted by a
+          clear data or administrative error.
+        </p>
+        <p class="panel-text">
+          <span class="bold">Cancelling/Voiding Pools:</span>
+        </p>
+        <p class="panel-text">
+          If a pool is cancelled or voided, stakes will be refunded in full (no
+          Administration Fee will be charged). MiPpools will announce to Users
+          the reason(s) for cancelling or voiding a pool as soon as we can.
+        </p>
+        <p class="panel-text">
+          If an Event is cancelled before the Start Time, all pools relating
+          solely to that Event will be cancelled. If the Event forms part of a
+          larger pool, that pool will stand unless more than half the events
+          contributing to it are cancelled.
+        </p>
+        <p class="panel-text">
+          If an Event is postponed, all related pools will normally be cancelled
+          or voided if the Event does not go ahead within 24 hours of the
+          original scheduled Start Time. See individual sports rules below for
+          further details.
+        </p>
+        <p class="panel-text">
+          If the action within an Event is seriously curtailed or distorted (for
+          example, there is barely any play in a cricket match due to rain) all
+          pools relating to that Event will be voided. See individual sports for
+          further details.
+        </p>
+        <p class="panel-text">
+          If the venue of the Event is changed, we reserve the right to void the
+          pool if we consider that those who entered the pool before the venue
+          change became known have been seriously disadvantaged.
+        </p>
+        <p class="panel-text">
+          If i-pools suspects any kind of criminal or fraudulent activity, we
+          may cancel or void any entries or pools as we see fit.
+        </p>
+        <p class="panel-text">
+          <span class="bold"
+            >Voiding questions or selections within pools:</span
+          >
+        </p>
+        <p class="panel-text">
+          If a question is voided, no points will be allocated for that
+          question. If a player has picked a voided question as their "Double
+          Up" in a pool they will therefore lose the benefit of their Double Up
+          selection.
+        </p>
+        <p class="panel-text">
+          Questions or selections may be voided if an obvious administration
+          error or omission has been made.
+        </p>
+        <p class="panel-text">
+          Questions or selections may be voided in the event of changes
+          occurring before the Start Time of that pool that materially affect
+          the nature of the question. (for example, if a Cricket pool ask "Who
+          will score more runs, Player A or Player B?"’ but one of the two
+          players is a known non-runner before the Start Time, the question
+          would be void unless otherwise stated).
+        </p>
+        <p class="panel-text">
+          Some sports have specific rules to determine the circumstances in
+          which a question or a selection will be voided (see 6. Specific Sports
+          Rules below). As a "rule of thumb", if 75% of the constituent events
+          in a question take place, the question will stand and if not, it will
+          be voided (e.g. if we ask "How many goals will be scored in the
+          Premier League Week 31?" then the question will be voided if 3 or more
+          games are postponed for more than 24 hours).
+        </p>
+        <p class="panel-text">
+          Some individual questions may also have a specific proviso so that if
+          certain criteria are or are not fulfilled, then the question will be
+          voided. (For example ‘which of these named poker players will last
+          longest in the World Series of Poker Main Event?’ might have the
+          proviso ‘if fewer than three of the players enter or if none of the
+          named players make the money the question will be voided’.)
+        </p>
+        <p class="panel-text">
+          <span class="bold">Voiding or adjusting entries:</span>
+        </p>
+        <p class="panel-text">
+          In the event that a pool remains open to enter after the underlying
+          event has started, whether through an error on our part or because the
+          start time of the event was brought forward, we reserve the right to
+          void any entries to the pool we believe have gained an advantage
+          (intentionally or otherwise) by entering after the actual start time
+          of the event. If a User has edited their answer(s) after the Start
+          Time and gained an advantage (intentionally or otherwise) their
+          answer(s) will revert to their original answer provided before the
+          Start Time. If you believe this may be the case, please contact us:
+          <a href="mailto:helpdesk@mipools.co.uk">helpdesk&#64;mipools.co.uk</a
+          >.
+        </p>
+        <p class="panel-text">
+          We also reserve the right to void any entry that we may reasonably
+          believe is involved with any criminal and/or fraudulent activity or
+          any entry by a User previously banned from the Website (for any
+          reason).
+        </p>
+        <p class="panel-text">
+          <span class="bold">Errors, Omissions and Changes:</span>
+        </p>
+        <p class="panel-text">
+          Should an error be made in setting up a pool, or a question within a
+          pool, we reserve the right to void that pool/question if we feel the
+          intention behind the pool/question is obscured by the error.
+        </p>
+        <p class="panel-text">
+          However if an error is made but the intention remains obvious (such as
+          a typo), the pool/question will stand: for example if for a Multiple
+          Choice question the choices are ‘3 or fewer, 4, 5, 6, 7 and 8 or
+          fewer’, the question will stand and the choice ‘8 or fewer will be
+          taken to mean ‘8 or more’ as it is obvious this is the intention; or
+          if Friday’s Daily Racing Pool asks ‘How many Favourites will win on
+          Thursday?’ the question will stand and be taken to refer to Friday’s
+          card.
+        </p>
+        <p class="panel-text">
+          If a User believes we have settled a pool incorrectly please contact
+          us immediately:
+          <a href="mailto:helpdesk@mipools.co.uk">helpdesk&#64;mipools.co.uk</a>
+          or refer to the Complaints and Disputes Procedures in our Terms and
+          Conditions or the Help Section of the Website.
+        </p>
+      </div>
+    }
+
+    @if (currentStep === Steps.STEP_2) {
+      <div class="rules-container">
+        <hr class="divider-line" />
+        <h3 class="text-subhead">Predictor Rules</h3>
+        <p class="panel-text">
+          PREDICTOR Pools consist of a series of simple questions about an
+          underlying event (or series of events) in which each user is asked to
+          predict the outcomes of certain key elements of that event.
+        </p>
+        <p class="panel-text">
+          Points are awarded for correct predictions or, in “Nearest Wins”
+          questions, for the predictions closest to the actual outcome (see
+          below). Players may be asked to ‘Double Up" on the answer they are
+          most confident with which then doubles the score!
+        </p>
+        <p class="panel-text">
+          At the end of the event(s), the Net Prizefund (the Prizefund after
+          deduction of the Administration Fee) is distributed to the User(s) who
+          scored the most points in the pool. The split of the Prizefund depends
+          on the game type and number of entries in the pool (see 3. Payout
+          Structure).
+        </p>
+        <p class="panel-text">
+          <span class="bold"
+            >To enter a pool a user MUST answer all the questions. There are
+            three types of question:</span
+          >
+        </p>
+        <p class="panel-text">
+          <span class="bold">1. Simple Yes/No: </span>For example if the
+          question was ‘Will Liverpool beat Everton?’ you answer ‘yes’ if you
+          think Liverpool will win, ‘no’ if you think that it will be a draw or
+          an Everton win. Yes/No questions are usually worth 10 points.
+        </p>
+        <p class="panel-text">
+          <span class="bold">2. Multiple Choice questions: </span>Users are
+          offered a number of possible answers for each question (between 3 and
+          10 options).
+        </p>
+        <p class="panel-text">
+          For example, for the question ‘Which of these batsmen will score most
+          runs in the first Ashes Test?’ your choices might be ‘Alastair Cook’,
+          ‘Joe Root’, ‘Steve Smith’, ‘David Warner’ and ‘Shane Watson’.
+        </p>
+        <p class="panel-text">
+          If there is more than one correct answer to a ‘Multiple Choice’
+          question (e.g. if two batsmen score the same highest score in a test
+          match) both answers will be deemed correct unless explicitly stated
+          otherwise (for example, for the question ‘which session will see the
+          most wickets?’ there might be the modifier ‘In the event of a tie the
+          session with the fewest runs wins’).
+        </p>
+        <p class="panel-text">
+          Multiple Choice questions are usually worth 20 points (other than
+          Predikta Pools which use the Predikta Scoring System - see below).
+        </p>
+        <p class="panel-text">
+          <span class="bold">3. Nearest Wins questions: </span>these questions
+          require Users to make predictions which may have a wider range of
+          possible outcomes. In contrast to Yes/No and Multiple Choice, Users
+          need not necessarily get the answer exactly right to score points,
+          just be closest. Here you will be offered a numerical range of answers
+          and the points are shared between those whose answers are nearest to
+          the actual answer.
+        </p>
+        <p class="panel-text">
+          For example, for the question ‘In which minute will the first try be
+          scored in the first Australia v The Lions Test?’ you would be able to
+          select an answer between 1 and 80. Note that if there is no try scored
+          the answer would be 80 (i.e. the maximum)
+        </p>
+        <p class="panel-text">
+          Sometimes the range offered will not contain all possible answers as
+          we may not include highly unlikely outcomes. For example for the
+          question ‘How many games will there be in the Wimbledon Men’s Singles
+          Final?’ you might be offered a range from ’20 or fewer’ to ’70 or
+          more’.
+        </p>
+        <p class="panel-text">
+          In the event of a tie in the outcome of a Nearest Wins question, the
+          answer will normally be taken to be the lowest qualifying number (for
+          example, in a Snooker pool Nearest Win question “In which Frame will
+          the highest break be scored?” if both frame 6 and frame 11 have a 147
+          break, frame 6 will be deemed the answer); but if the answer is
+          arrived at by adding up numbers derived from several discrete events
+          (for example, ‘what will the total race card numbers at Salisbury be’)
+          the tied answers will be averaged (i.e. if race 4 is a dead heat
+          between 3 and 8 that race will contribute 5.5 to the total).
+        </p>
+        <p class="panel-text">
+          Should a Nearest Wins final answer not be a whole number it will be
+          rounded to the nearest whole number.
+        </p>
+        <p class="panel-text">
+          Nearest Wins questions are usually awarded to to ten "nearest" answers
+          as follows: 25 points to the nearest answer, 18 points to the second
+          nearest, 15 points to the third nearest (if applicable) and 12, 10, 8,
+          6, 4, 2, 1 point(s) respectively to the next nearest in order (if
+          applicable). If two Users pick the nearest they will share the
+          relevant points (e.g. 25 plus 18 shared between 2 Users equals 21.5
+          points each, 3 Users would share 25 plus 18 plus 15 divided by three
+          equals 19.33 points each, and so on)
+        </p>
+        <p class="panel-text">
+          <span class="bold">Predictors </span>are available in Unlimited, 10
+          Max or Heads Up formats (see 2. Pool Sizes).
+        </p>
+      </div>
+    }
+
+    @if (currentStep === Steps.STEP_3) {
+      <div class="rules-container">
+        <hr class="divider-line" />
+        <h3 class="text-subhead">Fantasy Rules</h3>
+        <p class="panel-text">
+          Users have to make a number of selections to represent them in an
+          event (or series of events) with each selection contributing points to
+          that User’s total score in the pool. For instance, a Football Fantasy
+          Pool requires a User to pick a Goalkeeper, a Defender, a Defensive
+          Midfielder, a Midfielder and a Striker each of which scores points for
+          certain achievements during the relevant match/matches (such as goals,
+          assists or red cards etc).
+        </p>
+        <p class="panel-text">
+          Players may be asked to choose a "Banker" or "Captain" or "Nap" which
+          then scores double points.
+        </p>
+        <p class="panel-text">
+          Unless otherwise stated, any selection that does not take part in the
+          underlying event(s) will score zero points. Any fixture which is
+          cancelled or postponed for more than 24 hours will be excluded from
+          the pool.
+        </p>
+        <p class="panel-text">
+          At the end of the relevant event(s) (defined by the End Date of the
+          pool) or, if applicable, when a User has accumulated the most points
+          (or achieved the target points score required) will win the pool and
+          the Net Prizefund is distributed among the Winner(s) according to the
+          Payout Structure.
+        </p>
+        <p class="panel-text">
+          Selections can be allocated a Multiplier which means that any points
+          they score will be multiplied by this number to give their actual
+          score.
+        </p>
+        <p class="panel-text">
+          <span class="bold">Fantasy Pools</span> are available in Unlimited, 10
+          Max or Heads Up formats (see 2. Pool Sizes).
+        </p>
+      </div>
+    }
+
+    @if (currentStep === Steps.STEP_4) {
+      <div class="rules-container">
+        <hr class="divider-line" />
+        <h3 class="text-subhead">Survivor Rules</h3>
+        <p class="panel-text">
+          Users are asked to make a selection in each of a series of events
+          (e.g. a Premier League team to win each week). Users that make a
+          successful selection then progress to the next round and select again,
+          until there is only one User left (or no Users if all remaining Users
+          are knocked out in the same round). The last remaining User wins the
+          Net Prizefund. If all remaining entrants are knocked out in the same
+          round, or the Event reaches the End Date with more than one remaining
+          User, the Net Prizefund will be shared between the remaining Users.
+        </p>
+        <p class="panel-text">
+          Each selection can be picked only once. Once a User has selected all
+          the possible remaining selections, they will no longer be able to make
+          further selections and will either share the Prizepool with the
+          remaining players, if they too cannot make any further selections, or,
+          in the event that other Users do have possible selections remaining,
+          they will be knocked out of the pool.
+        </p>
+        <p class="panel-text">
+          If a User has no valid selections remaining, or does not make a valid
+          selection for the next round of a Survivor Pool before the Start Time,
+          they will be knocked out of the pool and will not be eligible for a
+          share of the Prizefund (unless no other users make a valid selection
+          for that week or round, in which case all the users that were
+          remaining in the pool before the Start Time was reached will share the
+          Prizefund). If a User’s selection does not play because a match is
+          abandoned or postponed more than 24 hours and there is therefore no
+          result, that User will automatically be allocated the first available
+          selection by alphabetical order.
+        </p>
+        <p class="panel-text">
+          For example: in an American Football Survivor Pool starting in week
+          one of the NFL season a User would be presented with a list consisting
+          of the 32 NFL teams and asked to select a team to win their Week 1
+          match. If their team wins, they would progress to Week 2 and be asked
+          to pick a new team to win (but not the one previously picked) and so
+          on until that User picks a team that doesn't win - or everyone else
+          does.
+        </p>
+        <p class="panel-text">
+          In Survivor pools that allow Users to enter more than once, Users may
+          not select the same team more than once in each Round.
+        </p>
+        <p class="panel-text">
+          Another example of a Survivor Pool, with a different criterion to win,
+          is a Golf Survivor Pool where a User might be given a list of players
+          and be asked to pick a player to score under par in each round of the
+          tournament. If their selection successfully scores under par in that
+          round, the User is then required to pick another (different) player
+          the next round, and so on.
+        </p>
+        <p class="panel-text">
+          Some Survivor pools are designated to be "streak" pools which carry an
+          additional bonus prize for Users that are able to complete a "streak"
+          of successive successful picks. In a streak pool, the winning player
+          in the Survivor pool will then have the opportunity to continue to
+          play after the prize fund has been paid out and make selections in
+          each round in order to complete the required streak and win the bonus
+          prize. Details of the number of successful picks required to complete
+          a "streak" and the bonus prize that is available will be provided in
+          the pool description. All the normal SURVIVOR rules apply to streak
+          pools.
+        </p>
+        <p class="panel-text">
+          To win a Jackpot Bonus in a Predictor or Fantasy pool, the User must
+          answer each question correctly and precisely and according to the
+          Rules.
+        </p>
+        <p class="panel-text">
+          To win a Jackpot Bonus in a Survivor "streak" pool, the User must make
+          the specified number of correct selections in a row. For Football
+          Survivor Jackpot pools, this is 20 correct selections in a row; for a
+          Golf Survivor Jackpot pool this would require 10 correct selections in
+          a row.
+        </p>
+        <p class="panel-text">
+          <span class="bold">Survivor Pools </span>are available in Unlimited,
+          10 Max and Heads Up formats (see 2. Pool Sizes).
+        </p>
+      </div>
+    }
+
+    <div class="chat-container">
+      <p class="chat-text">
+        Need more help? Chat with us with our Live Chat between 8am and 8pm.
+      </p>
+      <div class="chat-button-container">
+        <button class="mipools-black-button" (click)="openChat()">
+          CHAT WITH US
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

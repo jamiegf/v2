@@ -1,0 +1,65 @@
+@use 'colors';
+.mipools-qa-slider.ngx-slider {
+  .ngx-slider-span.ngx-slider-bubble {
+    color: white;
+    width: 2rem;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 0.2rem;
+  }
+
+  .ngx-slider-tick {
+    display: none;
+  }
+
+  .ngx-slider-pointer {
+    width: 2rem;
+  }
+
+  &.predictor {
+    .ngx-slider-selection {
+      background-color: colors.$predictor;
+    }
+
+    .ngx-slider-pointer {
+      background-color: colors.$predictor;
+
+      &::after {
+        background-color: colors.$predictor;
+      }
+      &.ngx-slider-active::after {
+        background-color: white;
+      }
+    }
+  }
+
+  &.survivor {
+    .ngx-slider-selection {
+      background-color: colors.$survivor;
+    }
+    .ngx-slider-pointer {
+      background-color: colors.$survivor;
+      &::after {
+        background-color: colors.$survivor;
+      }
+      &.ngx-slider-active::after {
+        background-color: white;
+      }
+    }
+  }
+
+  &.fantasy {
+    .ngx-slider-selection {
+      background-color: colors.$fantasy;
+    }
+    .ngx-slider-pointer {
+      background-color: colors.$fantasy;
+      &::after {
+        background-color: colors.$fantasy;
+      }
+      &.ngx-slider-active::after {
+        background-color: white;
+      }
+    }
+  }
+}

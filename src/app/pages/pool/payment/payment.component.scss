@@ -1,0 +1,220 @@
+@use 'colors';
+
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-radius: 1.35rem 1.35rem 0 0;
+  @include colors.gameTypeBackground();
+
+  .trapezium {
+    border-top: 24px solid black;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    height: 0;
+    width: 140px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    .sport {
+      font-size: 0.75rem;
+      line-height: 0.75rem;
+      padding: 0 0 0.5rem 0;
+      text-align: center;
+      font-family: 'Robo-Med', Roboto, sans-serif;
+    }
+  }
+
+  .title {
+    font-family: 'Robo-Med', Roboto, sans-serif;
+    font-size: 1.3125rem;
+    line-height: 1.4rem;
+    color: black;
+  }
+
+  .balance-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    bottom: 0;
+    right: 0;
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+    padding: 0.5rem 0.65rem 0.65rem 0.25rem;
+    max-width: 33vw;
+    text-align: end;
+
+    .divider {
+      @media (max-width: 468px){
+        display: none;
+      }
+    }
+
+    .balance-title {
+      font-family: 'Robo-Med', Roboto, sans-serif;
+      font-size: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .balance-items {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-family: 'Robo-Med', Roboto, sans-serif;
+      font-size: 0.75rem;
+      line-height: 1.2;
+    }
+  }
+}
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90%;
+  margin: auto;
+  margin-top: 1rem;
+
+  hr {
+    width: 100%;
+    border: 0.1rem solid colors.$medium-dark-grey;
+    margin: 2rem 0;
+    border-radius: 0.2rem;
+  }
+
+  .payment-methods {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 2vh;
+    gap: 2%;
+
+    .payment-method {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      max-width: 33%;
+      background-color: colors.$medium-grey;
+      border: solid 0.1rem transparent;
+      border-radius: 0.4rem;
+      height: 4.5rem;
+
+      &:hover {
+        border-color: white;
+        background-color: black;
+      }
+
+      &.selected {
+        border-color: white;
+        background-color: colors.$dark-grey;
+
+        span {
+          @include colors.gameTypeColor();
+        }
+      }
+    }
+  }
+
+  .entries {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin-top: 1vh;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+    gap: 2%;
+
+    .entry {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.7rem 0.7rem 0.8rem 0.7rem;
+      border-radius: 0.7rem;
+      background-color: colors.$dark-grey;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+      text-align: center;
+      height: 100%;
+      width: 33%;
+      justify-content: space-between;
+
+      .fee {
+        width: 100%;
+        background-color: colors.$medium-grey;
+        border: solid 0.1rem transparent;
+        text-align: center;
+        border-radius: 0.4rem;
+        min-height: 5.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: clamp(1rem, 3vw, 1.375rem);
+        font-family: 'Robo-Med', Roboto, sans-serif;
+
+        &.selected {
+          border-color: white;
+          background-color: colors.$dark-grey;
+
+          span {
+            @include colors.gameTypeColor(); 
+          }
+        }
+      }
+
+      .prize-title {
+        font-family: 'Robo-Reg', Roboto, sans-serif;
+        font-size: 0.875rem;
+        color: colors.$extra-light-grey;
+      }
+
+      .prize {
+        font-family: 'Robo-Reg', Roboto, sans-serif;
+        font-size: 1rem;
+        color: white;
+      }
+
+      .players {
+        font-family: 'Robo-Reg', Roboto, sans-serif;
+        font-size: 0.875rem;
+        @include colors.gameTypeColor();
+      }
+
+      .total {
+        font-family: 'Robo-Reg', Roboto, sans-serif;
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  .entries-subhead {
+    font-family: 'Robo-Med', Roboto, sans-serif;
+    font-size: 1rem;
+    margin: 0 0 0.3rem 0;
+  }
+
+  .info {
+    font-family: 'Robo-Reg', Roboto, sans-serif;
+    font-size: 0.75em;
+    color: colors.$medium-grey;
+  }
+
+  .total {
+    width: 100%;
+    text-align: center;
+    font-family: 'Robo-Reg', Roboto, sans-serif;
+    font-size: 1.25em;
+    margin-top: -0.75rem;
+  }
+}

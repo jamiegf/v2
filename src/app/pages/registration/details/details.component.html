@@ -1,0 +1,68 @@
+<form
+  class="registration-form"
+  [formGroup]="registrationService.detailsForm"
+  (ngSubmit)="registrationService.submitPlayerDetails()"
+>
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <mat-select formControlName="title">
+      @for (title of titles; track title) {
+        <mat-option [value]="title">{{ title }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>First Name</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="firstName"
+      autocomplete="given-name"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Last Name</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="lastName"
+      autocomplete="family-name"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Date of Birth</mat-label>
+    <input
+      type="text"
+      matInput
+      [matDatepicker]="picker"
+      [max]="maxDate"
+      formControlName="dateOfBirth"
+      autocomplete="bday"
+    />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+    <mat-hint>DD/MM/YYYY</mat-hint>
+    @if (
+      registrationService.detailsForm.controls.dateOfBirth.hasError('required')
+    ) {
+      <mat-error>Date of Birth is required in format DD/MM/YYYY</mat-error>
+    }
+    @if (
+      registrationService.detailsForm.controls.dateOfBirth.hasError('notBefore')
+    ) {
+      <mat-error>You must be over 18 to use MiPools</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input type="text" matInput formControlName="email" autocomplete="email" />
+  </mat-form-field>
+  <button
+    class="submit-button"
+    aria-label="Submit Details"
+    [attr.aria-disabled]="!registrationService.detailsForm.valid"
+    [ngClass]="{ disabled: !registrationService.detailsForm.valid }"
+  >
+    Submit Details
+  </button>
+</form>

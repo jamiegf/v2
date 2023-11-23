@@ -1,0 +1,177 @@
+@use 'mixins';
+@use 'colors';
+
+span {
+  color: black;
+}
+
+.account-chip {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1vw;
+
+  .balance {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 0.15rem;
+    display: none;
+
+    @media screen and (min-width: 480px) {
+      display: flex;
+    }
+
+    .balance-cash {
+      font-family: 'Robo-Med', Roboto, sans-serif;
+      font-size: 1.1rem;
+    }
+
+    .balance-points {
+      font-family: 'Robo-Reg', Roboto, sans-serif;
+      font-size: 0.75rem;
+      color: colors.$dark-grey;
+    }
+  }
+}
+
+.dropdown {
+  position: absolute;
+  width: 12.5rem;
+  height: fit-content;
+  top: 2.5rem;
+  right: -0.6rem;
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.75rem;
+  filter: drop-shadow(#999 0 0 0.1rem);
+  right: 0;
+
+  @media screen and (min-width: 480px) {
+    right: -0.6rem;
+  }
+
+  .dropdown-user-icon {
+    position: absolute;
+    left: 1rem;
+    top: 1.07rem;
+    height: 1rem;
+    width: auto;
+    z-index: 2;
+  }
+
+  .dropdown-games-icon {
+    position: absolute;
+    left: 1rem;
+    top: 4rem;
+    height: 1rem;
+    width: auto;
+    z-index: 9;
+  }
+
+  .link-container {
+    background-color: white;
+    border-bottom: 1px solid colors.$extra-light-grey;
+    width: 100%;
+    height: 48px;
+    font-family: 'Robo-Bold', Roboto, sans-serif;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &.top {
+      border-top-left-radius: 0.75rem;
+      border-top-right-radius: 0.75rem;
+    }
+
+    &.bottom {
+      font-family: 'Robo-Reg', Roboto, sans-serif;
+      border-bottom-left-radius: 0.75rem;
+      border-bottom-right-radius: 0.75rem;
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+}
+
+.join-fun-text {
+  font-family: 'grover-bold', Roboto, sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  text-align: right;
+  text-transform: uppercase;
+  background: -webkit-linear-gradient(
+    0deg,
+    colors.$fantasy,
+    colors.$predictor,
+    colors.$survivor
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  display: none;
+
+  @media screen and (min-width: 480px) {
+    display: block;
+  }
+}
+
+.icon-panel {
+  position: relative;
+
+  .account-icon {
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-top: 0.2rem;
+
+    @media screen and (min-width: 480px) {
+      width: 2rem;
+      height: 2rem;
+      margin: 0;
+    }
+  }
+
+  .log-circle {
+    height: 1rem;
+    width: 1rem;
+    border: 0.13rem solid black;
+    background-color: colors.$light-grey;
+    border-radius: 50%;
+    position: absolute;
+    right: -0.3rem;
+    top: 0;
+
+    @media screen and (min-width: 480px) {
+      top: -0.2rem;
+    }
+
+    .log-circle-center {
+      height: 0.55rem;
+      width: 0.55rem;
+      border-radius: 50%;
+      background-color: colors.$light-grey;
+      border: 0.124rem solid black;
+      position: absolute;
+      right: 0.09rem;
+      top: 0.09rem;
+    }
+
+    &.logged-in {
+      background-color: colors.$light-green;
+
+      .log-circle-center {
+        background-color: colors.$light-green;
+      }
+    }
+  }
+}

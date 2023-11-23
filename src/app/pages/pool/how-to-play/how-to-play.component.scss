@@ -1,0 +1,96 @@
+@use 'colors';
+h1 {
+  text-align: center;
+}
+
+
+.rules {
+  text-align: left;
+  font-family: "Robo-Reg";
+  color: white;
+
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .how2-title {
+    font-family: "grover-bold";
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 1;
+    color: white;
+    margin: 40px 0 10px 0;
+    text-align: left;
+  }
+
+  .how2-title-predictor {
+    font-family: "grover-bold";
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 1;
+    color: colors.$predictor;
+    margin: 40px 0 10px 0;
+    text-align: left;
+  }
+
+  .how2-title-survivor {
+    font-family: "grover-bold";
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 1;
+    color: colors.$survivor;
+    margin: 40px 0 10px 0;
+    text-align: left;
+  }
+
+  .how2-title-fantasy {
+    font-family: "grover-bold";
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 1;
+    color: colors.$fantasy;
+    margin: 40px 0 10px 0;
+    text-align: left;
+  }
+
+  .how2-para {
+    font-family: "Robo-Reg";
+    font-size: 14px;
+    line-height: 1.7;
+    color: white;
+    margin-bottom: 5px;
+    color: white;
+    text-align: left;
+  }
+
+  .how2-list {
+    font-family: "Robo-Reg";
+    font-size: 14px;
+    line-height: 1.7;
+    color: white;
+    margin: 0 0 5px -23px;
+    color: white;
+    text-align: left;
+  }
+
+  .how2-table-top-bot {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+  }
+
+  img {
+    vertical-align: middle;
+    border-style: none;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+}

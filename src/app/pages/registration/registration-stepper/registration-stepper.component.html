@@ -1,0 +1,21 @@
+@if ({value: (registrationService.stage$ | async) || 0}; as stage) {
+  <div class="step-container">
+    @for (step of steps; track $index) {
+      <button
+        class="step"
+        [ngClass]="{ green: stage.value >= $index }"
+        aria-label="back"
+        (click)="registrationService.back()"
+        [disabled]="
+          !($even && stage.value === $index + 1)
+        "
+      >
+      @if(stage.value <= $index){
+        <span class="step-number">{{ $index +1 }}</span>
+      } @else {
+        <img src="assets/svg-icons/check.svg" class="tick-icon filter-highlight" alt="tick">
+      }
+      </button>
+    }
+  </div>
+}

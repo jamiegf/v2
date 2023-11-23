@@ -1,0 +1,71 @@
+<form
+  class="registration-form"
+  [formGroup]="registrationService.addressForm"
+  (ngSubmit)="registrationService.submitAddress()"
+>
+  <mat-form-field>
+    <mat-label>Mobile number</mat-label>
+    <input type="text" matInput formControlName="mobile" id="mobile" autocomplete="mobile"/>
+    <mat-hint>Valid UK phone number.</mat-hint>
+  </mat-form-field>
+
+  <div class="text-container">
+    <span>Must be a valid UK mobile number</span>
+    <span>Max 11 numbers only. Example: 07915800123</span>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Post Code</mat-label>
+    <input type="text" matInput formControlName="postcode" id="postcode"  autocomplete="postal-code"/>
+    <button
+      type="button"
+      matSuffix
+      class="suffix-button"
+      [attr.aria-label]="'Search for post code'"
+      [disabled]="!registrationService.addressForm.controls.postcode.valid"
+      (click)="
+        getAddressService.searchPostcode(
+          registrationService.addressForm.controls.postcode.value
+        )
+      "
+    >
+      Search
+    </button>
+  </mat-form-field>
+  @if (getAddressService.addresses$ | async; as addresses) {
+    @if (addresses.length > 0) {
+      <mat-form-field>
+        <mat-label>Select an address</mat-label>
+        <mat-select [formControl]="addressIndexFormControl">
+          @for (address of addresses; track address; let index = $index) {
+            <mat-option [value]="index">{{
+              address | formatAddress
+            }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    }
+  }
+  @if (selectedAddress$ | async; as selectedAddress) {
+    <mat-form-field>
+      <mat-label>Address line 1</mat-label>
+      <input type="text" matInput formControlName="address1" id="address1" autocomplete="address-line1" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Address line 2</mat-label>
+      <input type="text" matInput formControlName="address2" id="address2" autocomplete="address-line2"/>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <input type="text" matInput formControlName="city" id="city" autocomplete="address-level1"/>
+    </mat-form-field>
+  }
+  <button
+    class="submit-button"
+    aria-label="Next registration stage"
+    [attr.aria-disabled]="!registrationService.addressForm.valid"
+    [ngClass]="{ disabled: !registrationService.addressForm.valid }"
+  >
+    Next
+  </button>
+</form>

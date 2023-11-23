@@ -1,0 +1,114 @@
+@use 'colors';
+
+.controls {
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  margin: 0 auto;
+  grid-template-columns: 1fr 3fr 1fr;
+
+  @media screen and (min-width: 480px) {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+
+  .back-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.375rem;
+    width: 2.375rem;
+    border-radius: 50%;
+    justify-self: flex-start;
+    align-self: center;
+
+    @include colors.gameTypeBackground();
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    img {
+      height: 1.4rem;
+      width: auto;
+    }
+  }
+
+  .action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2;
+    font-family: 'Robo-Bold', Roboto, sans-serif;
+    padding: 0;
+    font-size: 1.13rem;
+    color: colors.$dark-grey;
+    letter-spacing: 0;
+    border: none;
+    border-radius: 2rem;
+    width: 100%;
+    max-width: 18rem;
+    height: 10vh;
+    max-height: 3rem;
+    text-align: center;
+
+    @include colors.gameTypeBackground();
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .how-to-button {
+    grid-column: 3;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 2rem;
+    display: flex;
+    justify-self: flex-end;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    max-height: 3rem;
+    gap: 0.9rem;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    @media screen and (min-width: 480px) {
+      background-color: colors.$medium-dark-grey;
+      padding: 0 0.35rem 0 1.2em;
+    }
+
+    .how-to-text {
+      font-family: 'Robo-Bold', Roboto, sans-serif;
+      color: white;
+      font-size: 0.93rem;
+      display: none;
+
+      @media screen and (min-width: 480px) {
+        display: block;
+      }
+    }
+
+    .how-to-question-mark {
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Robo-Med', Roboto, sans-serif;
+      color: white;
+      font-size: 1.4rem;
+      height: 2.4rem;
+      width: 2.4rem;
+
+      @include colors.gameTypeBackground();
+    }
+  }
+
+  * {
+    justify-self: center;
+  }
+}

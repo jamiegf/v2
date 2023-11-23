@@ -1,0 +1,85 @@
+<form
+  class="registration-form"
+  [formGroup]="registrationService.accountForm"
+  (ngSubmit)="registrationService.submitAccount()"
+>
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="username"
+      id="username"
+      autocomplete="username"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input
+      [type]="hide ? 'password' : 'text'"
+      matInput
+      formControlName="password"
+      id="password"
+      autocomplete="new-password"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+    @if (registrationService.accountForm.hasError('size', 'password')) {
+      <mat-error>Password must be at least 7 characters long.</mat-error>
+    } @else if (
+      registrationService.accountForm.hasError('special', 'password')
+    ) {
+      <mat-error>Password must contain at least 1 special character.</mat-error>
+    } @else if (
+      registrationService.accountForm.hasError('numeric', 'password')
+    ) {
+      <mat-error>Password must contain at least 1 numeric character.</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Retype Password</mat-label>
+    <input
+      [type]="hide ? 'password' : 'text'"
+      matInput
+      formControlName="passwordCheck"
+      id="password-check"
+      autocomplete="new-password"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+    @if (registrationService.accountForm.hasError('noMatch', 'passwordCheck')) {
+      <mat-error>Passwords do not match</mat-error>
+    }
+  </mat-form-field>
+  <mat-checkbox color="primary" formControlName="overEighteen">
+    I am over 18 and agree to the
+    <a class="mipools-link" routerLink="/terms" target="_blank">
+      Terms and Conditions </a
+    >*
+  </mat-checkbox>
+  <mat-checkbox color="primary" formControlName="optIn">
+    Subscribe to MiPools Marketing
+  </mat-checkbox>
+  <button
+    class="submit-button"
+    aria-label="Next registration stage"
+    [attr.aria-disabled]="!registrationService.accountForm.valid"
+    [ngClass]="{ disabled: !registrationService.accountForm.valid }"
+  >
+    Submit
+  </button>
+</form>

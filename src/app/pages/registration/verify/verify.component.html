@@ -1,0 +1,40 @@
+<form
+  class="registration-form"
+  [formGroup]="registrationService.verificationForm"
+  (ngSubmit)="registrationService.submitVerificationCode()"
+> 
+  <div class="text-container">
+    <span>We have sent a verification code to:</span>
+    <span class="green">{{ registrationService.detailsForm.value.email }}</span>
+    <span>Please enter your 6-digit code:</span>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Verification Code</mat-label>
+    <input
+      type="text"  
+      minlength="6"
+      maxlength="6"
+      matInput
+      class="code-input"
+      formControlName="code"
+    />
+  </mat-form-field>
+
+  <div class="text-container resend">
+    <span>Didn't get a verfication code or it has expired?</span>
+    <button (click)="resendVerifacationCode()" class="green-link" type="button" aria-label="resend verification code">
+      Resend Code to my Email
+    </button>
+    <span>Must be 18 or over and a UK resident.</span>
+  </div>
+
+  <button
+    class="submit-button"
+    type="submit"
+    [attr.aria-disabled]="!registrationService.verificationForm.valid"
+    [ngClass]="{ disabled: !registrationService.verificationForm.valid }"
+  >
+    Verify code
+  </button>
+</form>

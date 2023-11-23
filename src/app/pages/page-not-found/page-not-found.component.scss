@@ -1,0 +1,79 @@
+@use 'mixins';
+@use 'colors';
+
+.main-container {
+  width: 90vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header-container {
+  @include mixins.flexRowCenter();
+
+  .header-text {
+    font-family: 'grover-sc', Roboto, sans-serif;
+    font-size: 7.65rem;
+    text-align: center;
+    color: white;
+
+    @media screen and (min-width: 480px) {
+      font-size: 11rem;
+    }
+  }
+
+  .header-image {
+    height: 6.4rem;
+    width: auto;
+    margin: 3rem 0 0 0;
+
+    @media screen and (min-width: 480px) {
+      height: 9.25rem;
+      margin: 4rem 0 0 0;
+    }
+  }
+}
+
+.message-one {
+  font-family: 'grover-bold', Roboto, sans-serif;
+  font-size: 1.65rem;
+  line-height: 1.3;
+  text-align: center;
+  color: colors.$light-green;
+  margin: 0.9rem 0 0.9rem 0;
+
+  @media screen and (min-width: 480px) {
+    font-size: 2.3rem;
+  }
+}
+
+.message-two {
+  font-family: 'Robo-Reg', Roboto, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  text-align: center;
+  color: white;
+  max-width: 75%;
+}
+
+.home-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 15rem;
+  border-radius: 2rem;
+  border: 0.1rem solid white;
+  font-family: 'Robo-Reg', Roboto, sans-serif;
+  font-size: 1rem;
+  background-color: black;
+  color: white;
+  margin: 4rem 0 0 0;
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+}

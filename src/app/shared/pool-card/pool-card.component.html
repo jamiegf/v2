@@ -1,0 +1,78 @@
+<div class="card" [ngClass]="pool.gameType">
+  <div class="game-type-indicator-panel" [ngClass]="pool.gameType"></div>
+  <div class="row data-container">
+    <span class="date">
+      Start: {{ pool.closeDate | formatDate: 'do MMM HH:mm' }}
+    </span>
+    <img
+      class="category-icon"
+      [ngClass]="pool.gameType"
+      [alt]="pool.category.title"
+      [src]="pool.category.icon"
+    />
+  </div>
+  <div class="row">
+    <span class="title">{{ pool.eventTitle }}</span>
+  </div>
+  <div class="row closes-container">
+    <span class="countdown" *ngIf="countdown$">
+      {{ countdown$ | async }}
+    </span>
+    <div class="entry-count-mobile" *ngIf="pool.seats.length < 0">
+      <span *ngIf="pool.seats.length === 1; else seatCount">
+        <img src="assets/svg-icons/check.svg" class="player-tick" alt="tick" />
+      </span>
+      <ng-template #seatCount>
+        <span>{{ pool.seats.length }}</span>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="row-entry-prize-block">
+    <div class="info-item entry-panel">
+      <span class="info-header">&nbsp;</span>
+      <div class="entry-count" *ngIf="pool.seats.length < 0">
+        <span *ngIf="pool.seats.length === 1; else seatCount">
+          <img
+            src="assets/svg-icons/check.svg"
+            class="player-tick"
+            alt="tick"
+          />
+        </span>
+        <ng-template #seatCount>
+          <span>{{ pool.seats.length }}</span>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="info-item info-panel">
+      <div class="info-header">
+        <span>ENTRY</span>
+      </div>
+      <div class="info-data-container entry-fee">
+        <p class="entry-fee-description">
+          {{ pool.entryFeeDescription[0] }}
+        </p>
+        <p class="entry-fee-description points">
+          {{ pool.entryFeeDescription[1] }}
+        </p>
+      </div>
+    </div>
+
+    <div class="info-item info-panel">
+      <div class="info-header">
+        <span>COMBINED PRIZE</span>
+      </div>
+      <div class="info-data-container prize-container">
+        <img
+          src="https://media.miomni.com/uploads/icon_prizefilled.png"
+          class="prize-image"
+          alt="prize"
+        />
+        <div class="prize-block">
+          <span> {{ pool.prizeDescription }} </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

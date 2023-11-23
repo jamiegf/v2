@@ -1,0 +1,202 @@
+@use 'colors';
+
+a {
+  text-decoration: none;
+  color: colors.$dark-green;
+
+  &:hover {
+    color: colors.$light-green;
+  }
+}
+
+.main-continer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  max-width: 800px;
+  margin: 0 auto 0 auto;
+  padding-top: 2rem;
+
+  @media screen and (min-width: 768px) {
+    width: 90vw;
+  }
+}
+
+.text-container {
+  background-color: white;
+  width: 100%;
+  margin-top: 0;
+  padding: 1rem 1.5rem;
+  margin: 0 0 3rem 0;
+  border-radius: 0.5rem;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .header {
+    font-family: 'grover-bold', sans-serif;
+    font-size: 1.6rem;
+    color: black;
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+
+    @media screen and (min-width:480px) {
+      font-size: 1.8rem;
+    } 
+  }
+}
+
+.divider-line {
+  border: 0.2rem black solid;
+  margin: 2rem 0 1rem 0;
+}
+
+.text-subhead {
+  font-family: 'Robo-Bold', Roboto, sans-serif;
+  font-size: 1.2rem;
+  color: black;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.small-subhead {
+  font-family: 'Robo-Bold', Roboto, sans-serif;
+  font-size: 0.95rem;
+  color: black;
+  margin: 2rem 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.panel-text {
+  font-family: 'Robo-Reg', Roboto, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: black;
+  margin: 1rem 0 1rem 0;
+  display: block;
+
+  span {
+    font-family: 'Robo-Bold', Roboto, sans-serif;
+  }
+
+  &.indent {
+    padding-left: 1rem;
+  }
+
+  &.link {
+    text-decoration: none;
+  }
+
+  &.italic {
+    font-style: italic;
+  }
+
+  &.sign-off {
+    font-family: 'Robo-Bold', Roboto, sans-serif;
+    color: colors.$dark-green;
+  }
+}
+
+.grid {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1.8rem 0 2rem 0;
+}
+
+.grid-left {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.7rem;
+  line-height: 1.2;
+
+  @media screen and (min-width: 300px) {
+    font-size: 0.75rem;
+  }
+
+  .grid-left-top {
+    background-color: colors.$medium-grey;
+    height: 5rem;
+    padding: 0.35rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.7rem;
+    color: white;
+    line-height: 1.2;
+
+    @media screen and (min-width: 300px) {
+      font-size: 0.75rem;
+    }
+  }
+
+  .grid-left-bottom {
+    background-color: colors.$extra-light-grey;
+    color: black;
+    height: 2.5rem;
+    padding: 0.35rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.7rem;
+    line-height: 1.2;
+
+    @media screen and (min-width: 300px) {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.grid-right {
+  display: flex;
+  gap: 0.5rem;
+  flex: 2;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.7rem;
+  line-height: 1.2;
+
+  @media screen and (min-width: 300px) {
+    font-size: 0.75rem;
+  }
+
+  .grid-right-top {
+    background-color: colors.$medium-grey;
+    height: 5rem;
+    padding: 0.35rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.7rem;
+    color: white;
+    line-height: 1.2;
+
+    @media screen and (min-width: 300px) {
+      font-size: 0.75rem;
+    }
+  }
+
+  .grid-right-small {
+    display: flex;
+    gap: 0.5rem;
+    height: 2.5rem;
+    justify-content: space-between;
+
+    .small-grid {
+      background-color: colors.$extra-light-grey;
+      color: black;
+      height: 2.5rem;
+      flex: 1;
+      padding: 0.35rem;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.7rem;
+      line-height: 1.2;
+
+      @media screen and (min-width: 300px) {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}

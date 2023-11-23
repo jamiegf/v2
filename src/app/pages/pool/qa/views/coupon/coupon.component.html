@@ -1,0 +1,12 @@
+@for (questionGroup of questions$ | async; track $index) {
+  <div class="question-container" >
+    <h2 class="title" [ngClass]="gameType$ | async">{{ questionGroup[0] }}</h2>
+    @for (question of questionGroup[1]; track question.details.id) {
+      <mipools-front-end-inline-multiple-choice
+        style="width: 100%"
+        [question]="question"
+        [gameType]="(gameType$ | async) || 'predictor'"
+      ></mipools-front-end-inline-multiple-choice>
+    }
+  </div>
+}

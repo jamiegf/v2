@@ -1,0 +1,172 @@
+@use 'colors';
+
+a {
+  text-decoration: none;
+  color: colors.$dark-green;
+
+  &:hover {
+    color: colors.$light-green;
+  }
+}
+
+.main-continer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90vw;
+  max-width: 1000px;
+  margin: 0 auto 0 auto;
+  padding-top: 1rem;
+
+  @media screen and (min-width: 480px) {
+    padding-top: 1.5rem;
+  }
+
+  .header {
+    font-family: 'grover-bold', sans-serif;
+    font-size: 1.6rem;
+    color: white;
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+
+    @media screen and (min-width:480px) {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.top-container {
+    display: grid;
+    align-items: center;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: auto;
+    row-gap: 1rem;
+    column-gap: 0;
+    width: 100%;
+    margin-top: 2rem;
+    align-items: flex-start;
+  
+    @media screen and (min-width: 480px) {
+        row-gap: 0;
+        column-gap: 1.5rem;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .panel {
+      background-color: colors.$dark-grey;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+      width: auto;
+      height: 17rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
+
+      .top-section {
+        display: flex;
+        flex-direction: column;
+      }
+  
+      .panel-head {
+        font-family: 'grover-sc', sans-serif;
+        font-size: 1.15rem;
+        color: white;
+        text-align: end;
+        line-height: 1.2;
+
+        @media screen and (min-width:480px) {
+          font-size: 1.25rem;
+        }
+      }
+  
+      .panel-text {
+        font-family: 'Robo-Reg', Roboto, sans-serif;
+        font-size: 0.8rem;
+        line-height: 1.4;
+        color: white;
+        text-align: end;
+        margin: 1rem 0 1.2rem 0;
+  
+        a {
+          text-decoration: none;
+          color: colors.$light-green;
+  
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+  
+      .panel-button {
+        width: 100%;
+        height: 2.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Robo-Reg', Roboto, sans-serif;
+        font-size: 0.7rem;
+        color: colors.$light-green;
+        background: transparent;
+        border-radius: 2rem;
+        border: 0.1rem colors.$medium-grey solid;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: white;
+          color: black;
+        }
+      }
+    }
+  }
+  
+  .bottom-container {
+    background-color: colors.$extra-light-grey;
+    width: 100vw;
+    height: 100%;
+    padding: 0 0 1rem 0;
+    margin: 2rem 0 0 0;
+  }
+
+  .text-container {
+    display: block;
+    align-items: center;
+    width: 90vw;
+    max-width: 1000px;
+    margin: 2rem auto;
+  
+    @media screen and (min-width: 480px) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 0rem;
+        column-gap: 1.5rem;
+        align-items: flex-start;
+    }
+
+    .text-panel {
+      width: 100%;
+
+      .text-head {
+        font-family: 'Robo-Bold', Roboto, sans-serif;
+        font-size: 1rem;
+        margin: 1rem 0 1rem 0;
+        color: black;
+
+        @media screen and (min-width:480px) {
+          margin: 0 0 1rem 0;
+        }
+      }
+
+      .body-text {
+        font-family: 'Robo-Reg', Roboto, sans-serif;
+        font-size: 0.875rem;
+        line-height: 1.4;
+        margin: 0 0 1rem 0;
+        display: inline-block;
+        color: black;
+      }
+
+    }
+  }

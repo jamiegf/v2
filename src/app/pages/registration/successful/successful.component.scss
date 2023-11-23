@@ -1,0 +1,46 @@
+@use 'colors';
+
+.action-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  justify-items: center;
+  align-items: center;
+
+  .mipools-black-button {
+    grid-column: 2;
+  }
+
+  .faq-button {
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border-radius: 100%;
+    background-color: colors.$mipools-green;
+
+    &:hover {
+      background-color: colors.$mipools-green-hover;
+    }
+  }
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  gap: 1rem;
+  margin: 0.75rem auto 2rem auto;
+
+  span {
+    font-family: 'Robo-Reg', Roboto, sans-serif;
+    font-size: 1rem;
+    line-height: 1.3;
+    width: 90%;
+    text-align: center;
+  }
+}

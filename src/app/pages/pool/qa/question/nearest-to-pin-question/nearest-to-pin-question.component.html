@@ -1,0 +1,25 @@
+<div class="container">
+  <mat-slider
+    class="{{ gameType }}-theme slider"
+    [min]="question.details.minimumValue"
+    [max]="question.details.maximumValue"
+    [step]="question.details.valueInterval"
+    color="primary"
+    discrete
+  >
+    <input matSliderThumb aria-label="Select a value" (valueChange)="setAnswer($event)"/>
+  </mat-slider>
+  <div class="input-container">
+    <div class="enter-text">Enter your value</div>
+    <input
+      type="number"
+      class="number-input {{ gameType }}"
+      [ngClass]="{ invalid: !inputValid }"
+      [value]="(question.answer$ | async) || null"
+      [step]="question.details.valueInterval"
+      [min]="question.details.minimumValue"
+      [max]="question.details.maximumValue"
+      (change)="handleInputEvent($event)"
+    />
+  </div>
+</div>

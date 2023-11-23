@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="transactions-header">
+    <div class="title-section">
+      <span>Statement</span>
+      <mipools-front-end-exit-button class="exit-button" (exitEvent)="exit()">
+      </mipools-front-end-exit-button>
+    </div>
+    <div class="controls-container">
+      <div class="column controls">
+        <span class="statement-head"><b>View Statement</b></span>
+        <mipools-front-end-drop-down-menu
+          class="drop-down"
+          [options]="(availableDateOptions$ | async) || []"
+          (selectedIndexEmitter)="currentDateIndex = $event"
+          #dropDown
+        >
+          <button class="toggle" (click)="dropDown.toggle()">
+            {{ currentDate$ | async | date: 'MMMM, yyyy' }}
+            <img
+              src="assets/svg-icons/angle-down.svg"
+              class="filter-highlight down-arrow"
+              alt="down arrow"
+            />
+          </button>
+        </mipools-front-end-drop-down-menu>
+      </div>
+      <div class="column">
+        <span
+          class="amount"
+          *ngIf="
+            playerTransactionsService.totalWinnings$ | async;
+            let totalWinnings;
+            else: loading
+          "
+        >
+          {{ totalWinnings }}
+        </span>
+        <span class="title">Winnings this month</span>
+      </div>
+      <div class="column">
+        <span class="amount"> {{ points$ | async }}</span>
+        <span class="title">Your Points</span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="transactions hide-scrollbars"
+    *ngIf="
+      (playerTransactionsService.transactions$ | async) !== null;
+      else loading
+    "
+  >
+    <ng-container
+      *ngIf="
+        playerTransactionsService.transactions$ | async;
+        let transactions;
+        else: noTransactions
+      "
+    >
+      <ng-container *ngIf="transactions.length > 0; else noTransactions">
+        <mipools-front-end-transaction
+          class="transaction-item"
+          [transaction]="transaction"
+          *ngFor="let transaction of transactions"
+        >
+        </mipools-front-end-transaction>
+      </ng-container>
+    </ng-container>
+    <ng-template #noTransactions>
+      <span>
+        No transactions found for
+        {{ currentDate$ | async | date: 'MMMM, yyyy' }}
+      </span>
+    </ng-template>
+  </div>
+</div>
+<ng-template #loading>
+  <mipools-front-end-loading></mipools-front-end-loading>
+</ng-template>

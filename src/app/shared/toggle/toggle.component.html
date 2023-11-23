@@ -1,0 +1,9 @@
+<div class="toggle-block">
+  <div class="toggle-text">Show<br />card</div>
+  <label class="switch">
+    <input type="checkbox" [formControl]="toggleControl" />
+    <ng-container *ngIf="activePoolService.poolData$ | async; let poolData">
+      <span class="slider round" [ngClass]="poolData.poolInfo.gameType"></span>
+    </ng-container>
+  </label>
+</div>

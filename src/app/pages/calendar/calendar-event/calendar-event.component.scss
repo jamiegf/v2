@@ -1,0 +1,68 @@
+@use 'colors';
+
+.container {
+  display: grid;
+  grid-template-columns: 2fr 13fr 2.25fr;
+  align-items: center;
+
+  @media screen and (min-width: 480px) {
+    grid-template-columns: 1fr 13fr 1fr;
+  }
+
+  .sport-icon {
+    height: 1.875rem;
+    width: auto;
+  }
+
+  .calendar-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-left: 0.1rem black solid;
+    padding: 0 0 0 0.8rem;
+
+    .sport-title {
+      font-family: 'Robo-Reg', Roboto, sans-serif;
+      font-size: 1rem;
+      line-height: 1.3;
+      align-self: flex-start;
+      color: black;
+      margin: 0.35rem 0 0 0;
+    }
+
+    .sport-date {
+      font-family: 'Robo-Reg', Roboto, sans-serif;
+      font-size: 0.813rem;
+      line-height: 1.3;
+      align-self: flex-start;
+      color: colors.$medium-grey;
+      margin: 0 0 0.25rem 0;
+    }
+  }
+
+  .counter-circle {
+    height: 2.125rem;
+    width: 2.125rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Robo-Med', Roboto, sans-serif;
+    font-size: 1rem;
+    justify-self: flex-end;
+    color: black;
+    position: relative;
+
+    .event-number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      height: 80%;
+      background-color: white;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+  }
+}

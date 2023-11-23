@@ -1,0 +1,90 @@
+<div class="summary">
+  <ng-container
+    *ngIf="doubleUpService.doubleUpRequired$ | async; else noDoubleUpInfo"
+  >
+    <h1>Choose a prediction to 'Double Up'!</h1>
+    <span class="edit-answers-info">
+      'Double Up' on any answer you're most confident about for your chance to
+      double your points! <br />
+      You can <b>not</b> double up nearest to pin questions.
+    </span>
+  </ng-container>
+  <ng-template #noDoubleUpInfo>
+    <h1>Review your predictions!</h1>
+    <span class="edit-answers-info">
+      You can review your predictions until the pool goes live.
+    </span>
+  </ng-template>
+
+  <div class="answers-container">
+    <ng-container
+      *ngFor="
+        let question of questionService.questions$ | async;
+        index as index
+      "
+    >
+      <div class="question-section">
+        <span class="number">{{ index + 1 }}</span>
+
+        <span class="question">{{ question.details.label }}</span>
+      </div>
+      <div class="answer-section">
+        <button
+          class="answer"
+          *ngIf="doubleUpService.doubleUpRequired$ | async; else noDoubleUp"
+          [attr.aria-label]="
+            'Select ' + question.details.label + ' for double up.'
+          "
+          [ngClass]="{
+            selected:
+              (doubleUpService.selectedQuestion$ | async) ===
+              question.details.id
+          }"
+          (click)="doubleUpService.selectQuestion(question)"
+        >
+          {{ (question.answerLabel$ | async) || '-' }}
+          <img
+            *ngIf="
+              (doubleUpService.selectedQuestion$ | async) ===
+              question.details.id
+            "
+            src="https://media.miomni.com/icon_double_up_{{
+              activePoolService.gameType$ | async
+            }}.png"
+            alt="Double Up"
+            class="double-icon"
+          />
+        </button>
+
+        <ng-template #noDoubleUp>
+          <span class="answer">
+            {{ (question.answerLabel$ | async) || '-' }}
+          </span>
+        </ng-template>
+
+        <button
+          class="edit"
+          [attr.aria-label]="'Edit question ' + index"
+          (click)="goToEditQuestion(index)"
+          *ngIf="!question.details.locked; else locked"
+        >
+          <img
+            src="assets/svg-icons/pen.svg"
+            alt="Edit"
+            class="filter-white edit icon"
+          />
+        </button>
+
+        <ng-template #locked>
+          <div class="edit">
+            <img
+              src="assets/svg-icons/lock.svg"
+              class="filter-white icon"
+              alt="Locked"
+            />
+          </div>
+        </ng-template>
+      </div>
+    </ng-container>
+  </div>
+</div>

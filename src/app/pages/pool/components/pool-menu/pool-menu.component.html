@@ -1,0 +1,8 @@
+<div class="menu-bar">
+  <mipools-front-end-exit-button (exitEvent)="exit()">
+  </mipools-front-end-exit-button>
+  <mipools-front-end-pool-drop-down-menu></mipools-front-end-pool-drop-down-menu>
+  <mipools-front-end-toggle [initialToggleState]="true" (toggleEvent)="displayCard = $event"></mipools-front-end-toggle>
+  <mipools-front-end-pool-fold-out-card [@slideInOut]="displayCard ? 'open' : 'close'"
+  ></mipools-front-end-pool-fold-out-card>
+</div>

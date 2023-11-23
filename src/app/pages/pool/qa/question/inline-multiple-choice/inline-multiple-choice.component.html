@@ -1,0 +1,10 @@
+<div class="choice-container">
+  <button
+    *ngFor="let choice of question.details.choices"
+    class="choice {{ gameType }}"
+    [ngClass]="{ selected: (question.answer$ | async) === choice.id }"
+    (click)="question.setAnswer(choice.id)"
+  >
+    {{ choice.label }} ({{choice.points}}pts)
+  </button>
+</div>
