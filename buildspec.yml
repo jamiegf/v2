@@ -12,6 +12,6 @@ phases:
     commands:
       - ng build
 artifacts:
-  base-directory: dist/v2
+
   files:
     - '**/*'
