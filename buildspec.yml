@@ -12,6 +12,6 @@ phases:
     commands:
       - ng build
 artifacts:
-  base-directory: dist/my-angular-project/browser
+  base-directory: dist/v2
   files:
     - '**/*'
