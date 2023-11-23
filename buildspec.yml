@@ -12,6 +12,6 @@ phases:
     commands:
       - ng build
 artifacts:
-  base-directory: dist/v2/browser
+  base-directory: 
   files:
-    - '**/*'
+    - 'dist/mipools-front-end/browser/*'
